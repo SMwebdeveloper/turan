@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply transition-colors duration-300 ease-in-out; 
+}
+
+body.dark {
+  @apply bg-white; 
+}
+
+body.light {
+  @apply bg-[#2E004E]; 
+}
