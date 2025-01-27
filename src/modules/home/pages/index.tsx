@@ -7,6 +7,35 @@ import BizHaqimizda from "../../../assets/biz haqimizda.png";
 import BizHaqimizda2 from "../../../assets/biz haqimizda2.png";
 import Teacher from "../../../assets/teacher.png";
 import Ielts from "../../../assets/ielts.png"
+import Card2 from "../../../assets/card2.png"
+import Card3 from "../../../assets/card3.png"
+import Card4 from "../../../assets/card4.png"
+import Card6 from "../../../assets/card6.png"
+import Card7 from "../../../assets/card7.png"
+import Card8 from "../../../assets/card8.png"
+import { Link } from "react-router-dom";
+
+const cardList = [
+  {id:1 , img: Card2},
+  {id:2 , img: Card2},
+  {id:3 , img: Card3},
+  {id:4 , img: Card4},
+  {id:5 , img: Card2},
+  {id:6 , img: Card2},
+  {id:7 , img: Card3},
+  {id:8 , img: Card4},
+]
+
+const cardLis2 = [
+  {id:1 , img: Card6},
+  {id:2 , img: Card7},
+  {id:3 , img: Card8},
+  {id:4 , img: Card6},
+  {id:5 , img: Card7},
+  {id:6 , img: Card8},
+  {id:7 , img: Card6},
+  {id:8 , img: Card7},
+]
 
 const teacherList = [
   { id: 1, ieltsBall: 9.1, cefrBall: 75, img: Teacher, name: "Muhriddin Ismoilov", tajriba: "5+", uquvchilar: "500+" },
@@ -27,7 +56,6 @@ const studentList = [
 
 const Index = () => {
   const [currentIndex, setCurrentIndex] = useState(0); 
-  const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -206,124 +234,124 @@ const Index = () => {
 
     </div>
 
-    <div className="mt-[50px] lg:mt-[70px] xl:mt-[90px] flex flex-col w-full">
-      <div className="bg-[#F8B300] rounded-t-lg lg:rounded-t-[20px] w-[70%] lg:w-[50%] m-auto py-2 lg:py-4 ">
+    <div className="mt-[50px] lg:mt-[70px] xl:mt-[90px] flex flex-col  w-full">
+        <div className="bg-[#F8B300] rounded-t-lg lg:rounded-t-[20px] w-[70%] lg:w-[50%] m-auto py-2 lg:py-4 ">
         <h1
-          className={`uppercase font-[Yantramanav] font-medium text-center md:text-[24px] lg:text-[28px] xl:text-[34px]`}
+          className={` uppercase font-[Yantramanav] font-medium text-center md:text-[24px] lg:text-[28px] xl:text-[34px]`}
         >
           bizning o’quvchilar NATIJALARI
         </h1>
-      </div>
+        </div>
 
-      <div className="w-full bg-[#F8B300] py-[50px]">
-        {showAll ? (
-           <div className="flex flex-col gap-[50px] lg:gap-[80px] duration-300 ">
-            {studentList.map((item)=>(
-              <div className="grid grid-cols-1 gap-5 lg:gap-[60px] xl:gap-[80px] sm:grid-cols-3 w-[90%] m-auto">
-              <div className="flex justify-evenly sm:flex-col gap-[30px]">
-                <div className="border-[3px] border-[white] rounded-[16px] md:rounded-[22px] py-4 lg:py-5 px-5 flex flex-col items-center justify-center">
-                  <h1 className="text-[white] text-[24px] md:text-[30px] lg:text-[36px] xl:text-[48px] font-bold">
-                    {item.listening}
-                  </h1>
-                  <p className="text-[white] text-[18px] font-bold lg:text-[28px] xl:text-[34px]">
-                    listening
-                  </p>
-                </div>
-                <div className="border-[3px] border-[white] rounded-[16px] md:rounded-[22px] py-4 lg:py-5 px-5 flex flex-col items-center justify-center">
-                  <h1 className="text-[white] text-[24px] md:text-[30px] lg:text-[36px] xl:text-[48px] font-bold">
-                    {item.reading}
-                  </h1>
-                  <p className="text-[white] text-[18px] font-bold lg:text-[28px] xl:text-[34px]">
-                    reading
-                  </p>
-                </div>
-              </div>
-   
-              <div className="w-[80%] m-auto flex flex-col justify-end items-center ">
-                <img src={item.img} alt="student" className="w-[80%]" />
-              </div>
-   
-              <div className="flex justify-evenly sm:flex-col gap-[30px]">
-                <div className="border-[3px] border-[white] rounded-[16px] md:rounded-[22px] py-3 px-5 flex flex-col items-center justify-center">
-                  <h1 className="text-[white] text-[24px] md:text-[30px] lg:text-[36px] xl:text-[48px] font-bold">
-                    {item.writing}
-                  </h1>
-                  <p className="text-[white] text-[18px] font-bold lg:text-[28px] xl:text-[34px]">
-                    writing
-                  </p>
-                </div>
-                <div className="border-[3px] border-[white] rounded-[24px] md:rounded-[22px] py-3 px-5 flex flex-col items-center justify-center">
-                  <h1 className="text-[white] text-[24px] md:text-[30px] lg:text-[36px] xl:text-[48px] font-bold">
-                    {item.speaking}
-                  </h1>
-                  <p className="text-[white] text-[18px] font-bold lg:text-[28px] xl:text-[34px]">
-                    speaking
-                  </p>
-                </div>
-              </div>
-            </div>
-            ))}
-           </div>
-        ) : (
-          <div className="grid grid-cols-1 gap-5 lg:gap-[60px] xl:gap-[80px] sm:grid-cols-3 w-[90%] m-auto">
-            <div className="flex justify-evenly sm:flex-col gap-[30px]">
-              <div className="border-[3px] border-[white] rounded-[16px] md:rounded-[22px] py-4 lg:py-5 px-5 flex flex-col items-center justify-center">
-                <h1 className="text-[white] text-[24px] md:text-[30px] lg:text-[36px] xl:text-[48px] font-bold">
-                  {currentStudent.listening}
-                </h1>
-                <p className="text-[white] text-[18px] font-bold lg:text-[28px] xl:text-[34px]">
-                  listening
-                </p>
-              </div>
-              <div className="border-[3px] border-[white] rounded-[16px] md:rounded-[22px] py-4 lg:py-5 px-5 flex flex-col items-center justify-center">
-                <h1 className="text-[white] text-[24px] md:text-[30px] lg:text-[36px] xl:text-[48px] font-bold">
-                  {currentStudent.reading}
-                </h1>
-                <p className="text-[white] text-[18px] font-bold lg:text-[28px] xl:text-[34px]">
-                  reading
-                </p>
-              </div>
-            </div>
+        <div className="w-full bg-[#F8B300] py-[50px]">
 
-            <div className="w-[80%] m-auto flex flex-col justify-end items-center ">
-              <img src={currentStudent.img} alt="student" className="w-[80%]" />
-            </div>
 
-            <div className="flex justify-evenly sm:flex-col gap-[30px]">
-              <div className="border-[3px] border-[white] rounded-[16px] md:rounded-[22px] py-3 px-5 flex flex-col items-center justify-center">
-                <h1 className="text-[white] text-[24px] md:text-[30px] lg:text-[36px] xl:text-[48px] font-bold">
-                  {currentStudent.writing}
-                </h1>
-                <p className="text-[white] text-[18px] font-bold lg:text-[28px] xl:text-[34px]">
-                  writing
-                </p>
-              </div>
-              <div className="border-[3px] border-[white] rounded-[24px] md:rounded-[22px] py-3 px-5 flex flex-col items-center justify-center">
-                <h1 className="text-[white] text-[24px] md:text-[30px] lg:text-[36px] xl:text-[48px] font-bold">
-                  {currentStudent.speaking}
-                </h1>
-                <p className="text-[white] text-[18px] font-bold lg:text-[28px] xl:text-[34px]">
-                  speaking
-                </p>
-              </div>
+        <div className="grid grid-cols-1 gap-5 lg:gap-[60px] xl:gap-[80px] sm:grid-cols-3  w-[90%] m-auto " key={currentStudent.id}>
+          <div className="flex justify-evenly sm:flex-col gap-[30px]">
+            <div className="border-[3px] border-[white] rounded-[16px] md:rounded-[22px] py-4 lg:py-5 px-5 flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out opacity-100">
+              <h1 className="text-[white] text-[24px] md:text-[30px] lg:text-[36px] xl:text-[48px] font-bold">
+                {currentStudent.listening}
+              </h1>
+              <p className="text-[white] text-[18px] font-bold lg:text-[28px] xl:text-[34px] text-[Yantramanav]">
+              listening 
+              </p>
+            </div>
+            <div className="border-[3px] border-[white] rounded-[16px] md:rounded-[22px] py-4 lg:py-5 px-5 flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out opacity-100">
+              <h1 className="text-[white] text-[24px] md:text-[30px] lg:text-[36px] xl:text-[48px] font-bold">
+                {currentStudent.reading}
+              </h1>
+              <p className="text-[white] text-[18px] font-bold lg:text-[28px] xl:text-[34px] text-[Yantramanav]">
+              reading
+              </p>
             </div>
           </div>
-        )}
+
+          <div className="w-[80%] m-auto flex flex-col justify-end items-center ">
+            <img src={currentStudent.img} alt="teacher" className="w-[80%]" />
+            
+          </div>
+
+          <div className="flex justify-evenly sm:flex-col gap-[30px]">
+            <div className="border-[3px] border-[white] rounded-[16px] md:rounded-[22px] py-3 px-5 flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out opacity-100">
+              <h1 className="text-[white] text-[24px] md:text-[30px] lg:text-[36px] xl:text-[48px] font-bold">
+                {currentStudent.writing}
+              </h1>
+              <p className="text-[white] text-[18px] font-bold lg:text-[28px] xl:text-[34px] text-[Yantramanav]">
+              writing
+              </p>
+            </div>
+            <div className="border-[3px] border-[white] rounded-[24px] md:rounded-[22px] py-3 px-5 flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out opacity-100">
+              <h1 className="text-[white] text-[24px] md:text-[30px] lg:text-[36px] xl:text-[48px] font-bold">
+                {currentStudent.speaking}
+              </h1>
+              <p className="text-[white] text-[18px] font-bold lg:text-[28px] xl:text-[34px] text-[Yantramanav]">
+              speaking
+              </p>
+            </div>
+          </div>
+        </div>
+
+
+        </div>
+        <Link to={"/ielts"} className="bg-[#F8B300] rounded-b-lg lg:rounded-b-[20px] w-[40%] lg:w-[20%] m-auto py-1 lg:py-2 ">
+        <h1
+          className={` text-white font-[Yantramanav] font-medium text-center md:text-[18px] lg:text-[22px] xl:text-[28px]`}
+        >
+          Hammasi
+        </h1>
+        </Link>
+
       </div>
 
-      <button
-        className="bg-[#F8B300] rounded-b-lg lg:rounded-b-[20px] w-[40%] lg:w-[20%] m-auto py-1 lg:py-2"
-        onClick={() => setShowAll(!showAll)}
-      >
-        <h1
-          className={`text-white font-[Yantramanav] font-medium text-center md:text-[18px] lg:text-[22px] xl:text-[28px]`}
-        >
-          {showAll ? "Kamroq ko'rsat" : "Hammasi"}
-        </h1>
-      </button>
-    </div>
 
+      <div className="flex flex-col gap-[40px]">
+        <h1 className={`${darkMode ? 'text-[#1E063A]' : 'text-white' } text-[20px] font-medium text-center pt-[50px] md:pt-[70px] lg:pt-[80px]`}>TADBIRLARDAN LAVHALAR</h1>
+        
+        <div className="w-full h-auto m-auto ">
+          <div className="relative">
+            <div
+              id="carousel"
+              className="flex gap-6 space-x-4 overflow-x-scroll scrollbar-hide scroll-smooth snap-x snap-mandatory"
+            >
+              {cardList.map((item) => (
+                <div
+                  key={item.id}
+                  className="w-[200px] lg:w-[280px] snap-center rounded-[5px] overflow-hidden flex-shrink-0"
+                >
+                  <div className=" rounded-[20px] lg:rounded-[26px] h-auto flex flex-col  gap-[5px] ">
+                    <div className="flex justify-center h-[220px] lg:h-[280px] overflow-hidden ">
+                      <img src={item.img} alt="img" className="w-full h-full" />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
 
+        <div className="w-full h-auto m-auto ">
+          <div className="relative">
+            <div
+              id="carousel"
+              className="flex gap-6 space-x-4 overflow-x-scroll scrollbar-hide scroll-smooth snap-x snap-mandatory"
+            >
+              {cardLis2.map((item) => (
+                <div
+                  key={item.id}
+                  className="w-[320px] rounded-[24px] lg:rounded-[30px] lg:w-[420px] snap-center overflow-hidden flex-shrink-0"
+                >
+                  <div className=" rounded-[20px] lg:rounded-[26px] h-auto flex flex-col  gap-[5px] ">
+                    <div className="flex justify-center h-[220px] lg:h-[280px] overflow-hidden ">
+                      <img src={item.img} alt="img" className="w-full h-full" />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
     
   );
