@@ -1,11 +1,12 @@
 import { Outlet } from "react-router-dom"
 import {DarkModeProvider } from "./context/darkmodeContext"
-import { Header } from "./components"
+import { Footer, Header, } from "./components"
 const App = () => {
   return (
     <DarkModeProvider>
       <Header/>
       <Outlet/>
+      <Footer/>
     </DarkModeProvider>
    
   )

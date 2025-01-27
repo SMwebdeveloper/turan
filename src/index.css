@@ -11,5 +11,5 @@ body.dark {
 }
 
 body.light {
-  @apply bg-[#2E004E]; 
+  @apply bg-[#1E063A]; 
 }
