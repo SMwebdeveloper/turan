@@ -6,7 +6,7 @@ import {
   } from "react-router-dom";
   
   import App from "../App";
-import { Consultation, Courses, Exam, Home, Ielts } from "../modules";
+import { Consultation, Courses, Exam, Home, Ielts, Login, Register } from "../modules";
 
   const Index = () => {
     const router = createBrowserRouter(
@@ -17,6 +17,8 @@ import { Consultation, Courses, Exam, Home, Ielts } from "../modules";
           <Route path="/exam" element={<Exam/>} />
           <Route path="/consultation" element={<Consultation/>} />
           <Route path="/ielts" element={<Ielts/>}/>
+          <Route path="/login" element={<Login/>} />
+          <Route path="/register" element={<Register/>} />
         </Route>
       )
     );

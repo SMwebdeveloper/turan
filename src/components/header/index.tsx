@@ -78,9 +78,9 @@ const Index = () => {
             />
           </button>
 
-          <button className="bg-[#F8B300] font-[Yantramanav] py-[6px] px-[25px] rounded-[10px] lg:py-[8px] lg:px-[30px] lg:text-[20px] hover:scale-110 transition duration-500  ease-in-out">
+          <Link to={"./login"} className="bg-[#F8B300] font-[Yantramanav] py-[6px] px-[25px] rounded-[10px] lg:py-[8px] lg:px-[30px] lg:text-[20px] hover:scale-110 transition duration-500  ease-in-out">
             Kirish
-          </button>
+          </Link>
         </div>
 
         <div className="md:hidden">
@@ -164,9 +164,9 @@ const Index = () => {
         </ul>
 
         <div className="flex mx-6 items-center gap-[40px]">
-          <button className="font-[Yantramanav] bg-[#F8B300] py-[7px] px-[22px] rounded-[10px] hover:scale-110 transition duration-500  ease-in-out">
+          <Link to={"./login"} className="font-[Yantramanav] bg-[#F8B300] py-[7px] px-[22px] rounded-[10px] hover:scale-110 transition duration-500  ease-in-out">
             Kirish
-          </button>
+          </Link>
           <div
             className={`${
               darkMode ? "border-black" : "border-none"
