@@ -19,7 +19,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="w-[90%] m-auto mt-[30px] lg:mt-[50px] ">
+    <div className="w-[90%] m-auto mt-[30px] lg:mt-[50px] pb-[30px]">
       <div className="grid gap-4 sm:grid-cols-2 lg:gap-[26px] xl:gap-[30px]">
         <div className={`${darkMode ? "bg-[#CDCDCD]" : "bg-[white]"} rounded-[30px] lg:gap-[26px] xl:gap-[30px] px-[18px] lg:px-[30px] py-[40px] flex flex-col gap-[10px] justify-center`}>
           <h1 className="text-[#1E063A] text-[28px]  font-bold text-center sm:text-[24px] lg:text-[38px] xl:text-[46px]">Bepul konsultatsiya</h1>

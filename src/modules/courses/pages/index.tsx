@@ -8,7 +8,7 @@ import card4 from "../../../assets/kurs4.png";
 const Index = () => {
   const { darkMode } = useContext<any>(DarkModeContext);
   return (
-    <div className="w-[90%] m-auto mt-[30px] md:mt-[50px] lg:mt-[60px]">
+    <div className="w-[90%] m-auto mt-[30px] md:mt-[50px] pb-[30px] lg:mt-[60px]">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 px-[15%] sm:px-0 md:grid-cols-3 lg:grid-cols-4">
     
         <div className={`${darkMode ? 'bg-[#1E063A]' : 'bg-white' } w-full  rounded-[30px] shadow-lg flex flex-col items-center p-6 overflow-hidden text-center`}>

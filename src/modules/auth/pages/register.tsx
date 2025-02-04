@@ -8,33 +8,33 @@ const Index = () => {
   const { darkMode } = useContext<any>(DarkModeContext);
   const phoneInputRef = useRef<HTMLInputElement>(null);
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
-  const [otp, setOtp] = useState(["", "", "", "", ""]);
+  const [otp, setOtp] = useState(["", "", "", ""]);
 
   useEffect(() => {
     if (phoneInputRef.current) {
       intlTelInput(phoneInputRef.current, {
-        initialCountry: "uz", // O'zbekistonni default qilib qo'yamiz
-        separateDialCode: true, // +998 alohida chiqadi
+        initialCountry: "uz", 
+        separateDialCode: true, 
       });
     }
   }, []);
 
   const handleChange = (index: number, event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
-    if (!/^\d*$/.test(value)) return; // Faqat raqamga ruxsat berish
+    if (!/^\d*$/.test(value)) return; 
 
     const newOtp = [...otp];
-    newOtp[index] = value.substring(value.length - 1); // Faqat bitta raqam olish
+    newOtp[index] = value.substring(value.length - 1); 
     setOtp(newOtp);
 
     if (value && index < 4 && inputRefs.current[index + 1]) {
-      inputRefs.current[index + 1]?.focus(); // Keyingi inputga o'tish
+      inputRefs.current[index + 1]?.focus(); 
     }
   };
 
   const handleKeyDown = (index: number, event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Backspace" && !otp[index] && index > 0) {
-      inputRefs.current[index - 1]?.focus(); // Oldingi inputga qaytish
+      inputRefs.current[index - 1]?.focus(); 
     }
   };
 
@@ -64,7 +64,7 @@ const Index = () => {
             ))}
         </div>
 
-        <p className={`${darkMode ? "text-[#00000080]" : "text-[#FFFFFF80]" } text-sm font-semibold text-center text-[14px] lg:text-[16px] xl:text-[22px]`}>Qayta kod jonatish</p>
+        <button className={`${darkMode ? "text-[#00000080]" : "text-[#FFFFFF80]" } text-sm font-semibold text-center text-[14px] lg:text-[16px] xl:text-[22px]`}>Qayta kod jonatish</button>
 
         <button
           className={`mt-6 w-full py-3 text-[20px] lg:text-[26px] rounded-md font-medium ${

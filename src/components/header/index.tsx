@@ -20,9 +20,9 @@ const Index = () => {
       } shadow-xl transition-colors duration-300 ease-in-out z-50`}
     >
       <div className="w-[90%] m-auto flex justify-between items-center">
-        <div className="w-[45px] h-[45px] lg:w-[55px] lg:h-[55px]">
+        <Link to={"/"} className="w-[45px] h-[45px] lg:w-[55px] lg:h-[55px]">
           <img src={Logo} alt="Turan Logo" />
-        </div>
+        </Link>
 
         <div className="hidden md:flex items-center">
           <ul className="flex gap-[40px] lg:gap-[50px] xl:gap-[65px] lg:text-[20px]">

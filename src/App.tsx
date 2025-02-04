@@ -1,15 +1,19 @@
-import { Outlet } from "react-router-dom"
-import {DarkModeProvider } from "./context/darkmodeContext"
-import { Footer, Header, } from "./components"
+import { Outlet, useLocation } from "react-router-dom";
+import { DarkModeProvider } from "./context/darkmodeContext";
+import { Footer, Header } from "./components";
+
 const App = () => {
+  const location = useLocation();
+
+  const hideHeaderFooter = ["/login", "/register"].includes(location.pathname);
+
   return (
     <DarkModeProvider>
-      <Header/>
-      <Outlet/>
-      <Footer/>
+      {!hideHeaderFooter && <Header />}
+      <Outlet />
+      {!hideHeaderFooter && <Footer />}
     </DarkModeProvider>
-   
-  )
-}
+  );
+};
 
-export default App
+export default App;

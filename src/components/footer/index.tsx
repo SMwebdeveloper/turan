@@ -13,8 +13,8 @@ const messager = [
 
 const Index = () => {
   return (
-    <div className="py-[30px] lg:pt-[60px]">
-      <div className=" w-[90%] m-auto border-t-[2px] mt-[10px] border-[white] py-[30px] grid sm:grid-cols-2 sm:gap-[50px] lg:grid-cols-3 gap-[30px]">
+    <div className="py-[30px]  bg-[#1E063A]">
+      <div className=" w-[90%] m-auto border-t-[2px] mt-[10px] border-[white] lg:pt-[60px] py-[30px] grid sm:grid-cols-2 sm:gap-[50px] lg:grid-cols-3 gap-[30px]">
         <div className='flex flex-col gap-[15px] justify-between'>
 
 
