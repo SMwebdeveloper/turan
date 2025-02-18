@@ -1,4 +1,4 @@
-import Img from "../../../assets/ielts.png"
+import Img from "../../assets/ielts.png"
 const cards = [
   {id:1, img:Img , name:'Muhriddin'},
   {id:2, img:Img , name:'Muhriddin'},

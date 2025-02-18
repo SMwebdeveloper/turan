@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useContext, useEffect, useRef } from "react";
-import DarkModeContext from "../../../context/darkmodeContext";
+import DarkModeContext from "../../context/darkmodeContext";
 import intlTelInput from "intl-tel-input";
 import "intl-tel-input/build/css/intlTelInput.css";
-import Img from "../../../assets/konsultationImg.png"
+import Img from "../../assets/konsultationImg.png"
 
 const Index = () => {
   const { darkMode } = useContext<any>(DarkModeContext);
