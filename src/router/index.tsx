@@ -40,8 +40,8 @@ const Index = () => {
           <Route index element={<Dashboard/>}/>
           <Route path="/admin/settings/about" element={<About />} />
           <Route path="/admin/settings/records" element={<Records />} />
-          <Route path="/admin/settings/results" element={<Teachers />} />
-          <Route path="/admin/settings/teachers" element={<Results />} />
+          <Route path="/admin/settings/results" element={<Results />} />
+          <Route path="/admin/settings/teachers" element={<Teachers />} />
           <Route path="/admin/examens/add-questions" element={<AddQuestions />} />
           <Route path="/admin/examens/check-results" element={<CheckResults />} />
         </Route>

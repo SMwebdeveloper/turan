@@ -63,7 +63,7 @@ const AdminHeader = () => {
         <div className="flex items-center gap-x-[50px]">
           <button
             onClick={() => setOpenFirstSidebar(true)}
-            className="w-[63px] h-[63px] bg-yellow-400 rounded-full flex items-center justify-center"
+            className="w-[63px] h-[63px] bg-yellowColor rounded-full flex items-center justify-center"
           >
             <img src={Hamburger} alt="burger menu" />
           </button>
@@ -74,11 +74,11 @@ const AdminHeader = () => {
         <div className="flex items gap-x-[50px]">
           <button
             onClick={() => setSecondSidebar(true)}
-            className="w-[63px] h-[63px] rounded-full bg-yellow-400 flex items-center justify-center"
+            className="w-[63px] h-[63px] rounded-full bg-yellowColor flex items-center justify-center"
           >
             <img src={Notification} alt="notification img" />
           </button>
-          <button className="w-[63px] h-[63px] rounded-full bg-yellow-400 flex items-center justify-center">
+          <button className="w-[63px] h-[63px] rounded-full bg-yellowColor flex items-center justify-center">
             <img src={CheckLists} alt="checklist img" />
           </button>
         </div>
@@ -96,14 +96,14 @@ const AdminHeader = () => {
       ></div>
       {/* left sidebar */}
       <div
-        className={`fixed left-0 top-0 w-[338px] h-full z-20 bg-yellow-400 pt-[61px] pl-[11px] pr-[17px]  transition-all duration-200 ease-linear overflow-auto ${
+        className={`fixed left-0 top-0 w-[338px] h-full z-20 bg-yellowColor pt-[61px] pl-[11px] pr-[17px]  transition-all duration-200 ease-linear overflow-auto ${
           openFirstSidebar ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <div className="flex items-center justify-start px-[24px] gap-x-[50px] mb-[85px]">
           <button
             onClick={() => setOpenFirstSidebar(false)}
-            className="w-[63px] h-[63px] bg-[#2E004E] rounded-full flex items-center justify-center"
+            className="w-[63px] h-[63px] bg-colorDark rounded-full flex items-center justify-center"
           >
             <img src={Yellowburger} alt="burger yellow menu" />
           </button>
@@ -180,18 +180,18 @@ const AdminHeader = () => {
       </div>
       {/* right sidebar */}
       <div
-        className={`fixed right-0 top-0 w-[433px] h-full z-20 bg-yellow-400 pt-[61px] pl-[11px] pr-[17px] transition-all duration-200 ease-linear ${
+        className={`fixed right-0 top-0 w-[433px] h-full z-20 bg-yellowColor pt-[61px] pl-[11px] pr-[17px] transition-all duration-200 ease-linear ${
           openSecondSidebar ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="flex items-center justify-end pr-[35px] gap-x-[50px] mb-[39px]">
           <button
             onClick={() => setSecondSidebar(true)}
-            className="w-[63px] h-[63px] bg-[#2E004E] rounded-full flex items-center justify-center"
+            className="w-[63px] h-[63px] bg-colorDark rounded-full flex items-center justify-center"
           >
             <img src={NotificationYellow} alt="notification img" />
           </button>
-          <button className="w-[63px] h-[63px] bg-[#2E004E] rounded-full flex items-center justify-center">
+          <button className="w-[63px] h-[63px] bg-colorDark rounded-full flex items-center justify-center">
             <img src={CheckListsYellow} alt="checklist img" />
           </button>
         </div>
@@ -200,7 +200,7 @@ const AdminHeader = () => {
             <img
               src={User}
               alt="user image"
-              className="rounded-full w-[70px] h-[70px] bg-yellow-400 object-cover"
+              className="rounded-full w-[70px] h-[70px] bg-yellowColor object-cover"
             />
             <div>
               <h5 className="text-[24px] leading-8 text-[rgba(30, 6, 58, 1)]">
@@ -220,7 +220,7 @@ const AdminHeader = () => {
             <img
               src={User}
               alt="user image"
-              className="rounded-full w-[70px] h-[70px] bg-yellow-400 object-cover"
+              className="rounded-full w-[70px] h-[70px] bg-yellowColor object-cover"
             />
             <div>
               <h5 className="text-[24px] leading-8 text-[rgba(30, 6, 58, 1)]">
@@ -236,7 +236,7 @@ const AdminHeader = () => {
             <img
               src={User}
               alt="user image"
-              className="rounded-full w-[70px] h-[70px] bg-yellow-400 object-cover"
+              className="rounded-full w-[70px] h-[70px] bg-yellowColor object-cover"
             />
             <div>
               <h5 className="text-[24px] leading-8 text-[rgba(30, 6, 58, 1)]">
