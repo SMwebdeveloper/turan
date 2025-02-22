@@ -56,7 +56,7 @@ const AdminHeader = () => {
 
   return (
     <div
-      className="w-full pt-[61px] sticky flex items-center top-0 left-0 bg-trasparent 
+      className="w-full pt-[61px] pb-7 sticky flex items-center top-0 left-0 bg-[#1e063a] 
        transition-colors duration-300 ease-in-out z-50"
     >
       <div className="container m-auto flex justify-between items-center">
