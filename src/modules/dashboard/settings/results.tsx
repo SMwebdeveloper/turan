@@ -1,12 +1,13 @@
-import Ielts from "../../../assets/ielts.png"
-import PenCircle from "../../../assets/pen-circle.png"
+import Ielts from "../../../assets/ielts.png";
+import PenCircle from "../../../assets/pen-circle.png";
+import { Paginations } from "../../../components";
 const Results = () => {
   return (
-    <div className="container mx-auto pt-8 px-14">
+    <div className="max-w-[1220px] w-full mx-auto pt-8 pb-5 px-14">
       <button className="w-[205px] h-[49px] bg-yellowColor text-colorDark text-[20px] font-bold rounded-[10px] ml-auto flex items-center justify-center mb-[17px]">
         Qo'shish
       </button>
-      <div className="grid grid-cols-4 gap-x-[58px] gap-y-[54px]">
+      <div className="w-full flex flex-wrap items-center justify-center gap-x-[30px] gap-y-[54px] mb-9">
         {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
           <div key={item} className=" w-[205px]">
             <div className="relative w-full mb-[3px]">
@@ -29,8 +30,9 @@ const Results = () => {
           </div>
         ))}
       </div>
+      <Paginations />
     </div>
   );
-}
+};
 
-export default Results
+export default Results;
