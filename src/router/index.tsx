@@ -20,7 +20,8 @@ import {
   CheckResults,
   Records,
   Results,
-  Teachers
+  Teachers,
+  AddResults,
 } from "../modules";
 
 const Index = () => {
@@ -37,13 +38,20 @@ const Index = () => {
           <Route path="/register" element={<Register />} />
         </Route>
         <Route path="/admin" element={<App />}>
-          <Route index element={<Dashboard/>}/>
+          <Route index element={<Dashboard />} />
           <Route path="/admin/settings/about" element={<About />} />
           <Route path="/admin/settings/records" element={<Records />} />
           <Route path="/admin/settings/results" element={<Results />} />
           <Route path="/admin/settings/teachers" element={<Teachers />} />
-          <Route path="/admin/examens/add-questions" element={<AddQuestions />} />
-          <Route path="/admin/examens/check-results" element={<CheckResults />} />
+          <Route path="/admin/settings/add-results" element={<AddResults />} />
+          <Route
+            path="/admin/examens/add-questions"
+            element={<AddQuestions />}
+          />
+          <Route
+            path="/admin/examens/check-results"
+            element={<CheckResults />}
+          />
         </Route>
       </>
     )

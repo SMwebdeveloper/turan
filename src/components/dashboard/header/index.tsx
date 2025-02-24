@@ -138,6 +138,7 @@ const AdminHeader = () => {
             {settingsLinks.links?.map((link, i) => (
               <li
                 key={i}
+                onClick={() => setOpenFirstSidebar(false)}
                 className="bg-white/25 text-center py-2 rounded-full mb-2 text-[28px] text-white transition-all duration-300"
               >
                 <Link to={link.path}>{link.linkTitle}</Link>
@@ -170,6 +171,7 @@ const AdminHeader = () => {
             {examensLinks.links?.map((link, i) => (
               <li
                 key={i}
+                onClick={() => setOpenFirstSidebar(false)}
                 className="bg-[rgba(255,255,255,0.25)] text-center py-[8px] rounded-full mb-[6px] text-[28px] text-white"
               >
                 <Link to={link.path}>{link.linkTitle}</Link>

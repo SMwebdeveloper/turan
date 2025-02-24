@@ -13,6 +13,7 @@ const App = () => {
     "/admin/settings/about",
     "/admin/examens/add-questions",
     "/admin/examens/check-results",
+    "/admin/settings/add-results",
   ].includes(location.pathname);
 
   return (

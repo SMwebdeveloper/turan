@@ -1,12 +1,16 @@
+import { Link } from "react-router-dom";
 import Ielts from "../../../assets/ielts.png";
 import PenCircle from "../../../assets/pen-circle.png";
 import { Paginations } from "../../../components";
 const Results = () => {
   return (
     <div className="max-w-[1220px] w-full mx-auto pt-8 pb-5 px-10">
-      <button className="w-[205px] h-[49px] bg-yellowColor text-colorDark text-[20px] font-bold rounded-[10px] ml-auto flex items-center justify-center mb-[17px]">
+      <Link
+        to={"/admin/settings/add-results"}
+        className="w-[205px] h-[49px] bg-yellowColor text-colorDark text-[20px] font-bold rounded-[10px] ml-auto flex items-center justify-center mb-[17px]"
+      >
         Qo'shish
-      </button>
+      </Link>
       <div className="w-full flex flex-wrap items-center justify-center gap-x-[30px] gap-y-[54px] mb-9">
         {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
           <div key={item} className=" w-[205px]">

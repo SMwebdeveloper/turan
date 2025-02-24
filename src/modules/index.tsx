@@ -12,6 +12,7 @@ import Records from "./dashboard/settings/records";
 import Results from "./dashboard/settings/results";
 import AddQuestions from "./dashboard/examens/add-questions";
 import CheckResults from "./dashboard/examens/check-results";
+import AddResults from "./dashboard/settings/add-results";
 export {
   Home,
   Exam,
@@ -27,4 +28,5 @@ export {
   Results,
   AddQuestions,
   CheckResults,
+  AddResults
 };
