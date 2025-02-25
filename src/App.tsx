@@ -14,6 +14,7 @@ const App = () => {
     "/admin/examens/add-questions",
     "/admin/examens/check-results",
     "/admin/settings/add-results",
+    "/admin/settings/add-teachers",
   ].includes(location.pathname);
 
   return (
