@@ -58,7 +58,7 @@ const AdminHeader = () => {
     <div
       className="max-w-[1220px] w-full mx-auto pt-[61px] pb-4 px-14 sticky flex items-center top-0 left-0 bg-[#1e063a] 
        transition-colors duration-300 ease-in-out z-50"
-    >
+  >
       <div className="container m-auto flex justify-between items-center">
         <div className="flex items-center gap-x-[50px]">
           <button
