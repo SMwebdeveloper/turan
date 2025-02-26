@@ -7,7 +7,7 @@ import Login from "./auth/login";
 import Register from "./auth/register";
 import Dashboard from "./dashboard";
 import Teachers from "./dashboard/settings/teachers";
-import About from "./dashboard/settings/about";
+import Statistics from "./dashboard/settings/statistics";
 import Records from "./dashboard/settings/records";
 import Results from "./dashboard/settings/results";
 import AddQuestions from "./dashboard/examens/add-questions";
@@ -23,7 +23,7 @@ export {
   Login,
   Register,
   Dashboard,
-  About,
+  Statistics,
   Teachers,
   Records,
   Results,

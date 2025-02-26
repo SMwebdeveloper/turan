@@ -10,7 +10,7 @@ const App = () => {
     "/admin/settings/results",
     "/admin/settings/teachers",
     "/admin/settings/records",
-    "/admin/settings/about",
+    "/admin/settings/statistics",
     "/admin/examens/add-questions",
     "/admin/examens/check-results",
     "/admin/settings/add-results",
