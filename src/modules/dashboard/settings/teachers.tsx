@@ -6,7 +6,7 @@ import { Paginations } from "../../../components";
 
 const Teachers = () => {
   return (
-    <div className="max-w-[1220px] w-full mx-auto pt-8 pb-5 px-10">
+    <div className="max-w-[1220px] w-full mx-auto pt-8 pb-5">
       <Link
         to={"/admin/settings/add-teachers"}
         className="w-[205px] h-[49px] bg-yellowColor text-colorDark text-[20px] font-bold rounded-[10px] ml-auto flex items-center justify-center mb-[17px]"

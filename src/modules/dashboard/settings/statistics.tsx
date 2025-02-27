@@ -1,7 +1,7 @@
 
 const Statistics = () => {
   return (
-    <div className="max-w-[1220px] w-full mx-auto px-14 pt-11">
+    <div className="max-w-[1220px] w-full mx-auto pt-11">
       <div className="w-full mx-auto mb-8 h-[137px] flex flex-col items-center justify-center rounded-2xl bg-yellowColor">
         <h2 className="text-5xl font-bold text-colorDark">
           BIZNING STATISTIKA

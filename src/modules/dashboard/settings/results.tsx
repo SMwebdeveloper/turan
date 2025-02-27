@@ -4,7 +4,7 @@ import PenCircle from "../../../assets/pen-circle.png";
 import { Paginations } from "../../../components";
 const Results = () => {
   return (
-    <div className="max-w-[1220px] w-full mx-auto pt-8 pb-5 px-10">
+  <div className="max-w-[1220px] w-full mx-auto pt-8 pb-5">
       <Link
         to={"/admin/settings/add-results"}
         className="w-[205px] h-[49px] bg-yellowColor text-colorDark text-[20px] font-bold rounded-[10px] ml-auto flex items-center justify-center mb-[17px]"

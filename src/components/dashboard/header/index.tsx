@@ -55,9 +55,9 @@ const AdminHeader = () => {
   };
 
   return (
-    <header className="bg-[#1e063a] sticky top-0 left-0  z-50">
+    <header className="bg-[#1e063a] sticky top-0 left-0  z-30">
      
-        <div className="max-w-[1220px] w-full mx-auto pt-[61px] pb-4 px-14 flex justify-between items-center transition-colors duration-300 ease-in-out ">
+        <div className="max-w-[1220px] w-full mx-auto pt-[61px] pb-4 flex justify-between items-center transition-colors duration-300 ease-in-out ">
           <div className="flex items-center gap-x-[50px]">
             <button
               onClick={() => setOpenFirstSidebar(true)}
