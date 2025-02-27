@@ -13,3 +13,7 @@ body.dark {
 body.light {
   @apply bg-[#1E063A]; 
 }
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useContext } from "react";
-import DarkModeContext from "../../../context/darkmodeContext";
-import card1 from "../../../assets/kurs1.png";
-import card2 from "../../../assets/kurs2.png";
-import card3 from "../../../assets/kurs3.png";
-import card4 from "../../../assets/kurs4.png";
+import DarkModeContext from "../../context/darkmodeContext";
+import card1 from "../../assets/kurs1.png";
+import card2 from "../../assets/kurs2.png";
+import card3 from "../../assets/kurs3.png";
+import card4 from "../../assets/kurs4.png";
 const Index = () => {
   const { darkMode } = useContext<any>(DarkModeContext);
   return (

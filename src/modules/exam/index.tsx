@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useContext } from "react";
-import DarkModeContext from "../../../context/darkmodeContext";
+import DarkModeContext from "../../context/darkmodeContext";
 
 const Index = () => {
   const { darkMode } = useContext<any>(DarkModeContext);

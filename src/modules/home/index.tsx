@@ -1,18 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useContext, useState, useEffect } from "react";
-import DarkModeContext from "../../../context/darkmodeContext";
-import Hero from "../../../assets/hero.png";
-import Hero2 from "../../../assets/hero2.png";
-import BizHaqimizda from "../../../assets/biz haqimizda.png";
-import BizHaqimizda2 from "../../../assets/biz haqimizda2.png";
-import Teacher from "../../../assets/teacher.png";
-import Ielts from "../../../assets/ielts.png";
-import Card2 from "../../../assets/card2.png";
-import Card3 from "../../../assets/card3.png";
-import Card4 from "../../../assets/card4.png";
-import Card6 from "../../../assets/card6.png";
-import Card7 from "../../../assets/card7.png";
-import Card8 from "../../../assets/card8.png";
+import DarkModeContext from "../../context/darkmodeContext";
+import Hero from "../../assets/hero.png";
+import Hero2 from "../../assets/hero2.png";
+import BizHaqimizda from "../../assets/biz haqimizda.png";
+import BizHaqimizda2 from "../../assets/biz haqimizda2.png";
+import Teacher from "../../assets/teacher.png";
+import Ielts from "../../assets/ielts.png";
+import Card2 from "../../assets/card2.png";
+import Card3 from "../../assets/card3.png";
+import Card4 from "../../assets/card4.png";
+import Card6 from "../../assets/card6.png";
+import Card7 from "../../assets/card7.png";
+import Card8 from "../../assets/card8.png";
 import { Link } from "react-router-dom";
 
 const cardList = [
