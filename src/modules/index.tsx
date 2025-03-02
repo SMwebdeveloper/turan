@@ -14,6 +14,7 @@ import AddQuestions from "./dashboard/examens/add-questions";
 import CheckResults from "./dashboard/examens/check-results";
 import AddResults from "./dashboard/settings/add-results";
 import AddTeachers from "./dashboard/settings/add-teachers";
+import AuthLogin from "./dashboard/auth/login";
 export {
   Home,
   Exam,
@@ -30,5 +31,6 @@ export {
   AddQuestions,
   CheckResults,
   AddResults,
-  AddTeachers
+  AddTeachers,
+  AuthLogin
 };

@@ -7,6 +7,7 @@ const App = () => {
   const hideHeaderFooter = ["/login", "/register"].includes(location.pathname);
   const adminHeaderFooter = [
     "/admin",
+    "/admin/auth/login",
     "/admin/settings/results",
     "/admin/settings/teachers",
     "/admin/settings/records",
@@ -21,7 +22,7 @@ const App = () => {
     <DarkModeProvider>
       {adminHeaderFooter ? (
         <>
-          <AdminHeader />
+          {location.pathname !== "/admin/auth/login" && <AdminHeader />}{" "}
           <Outlet />
         </>
       ) : (

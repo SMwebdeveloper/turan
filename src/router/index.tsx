@@ -23,6 +23,7 @@ import {
   Teachers,
   AddResults,
   AddTeachers,
+  AuthLogin
 } from "../modules";
 
 const Index = () => {
@@ -40,6 +41,7 @@ const Index = () => {
         </Route>
         <Route path="/admin" element={<App />}>
           <Route index element={<Dashboard />} />
+          <Route path="/admin/auth/login" element={<AuthLogin/>}/>
           <Route path="/admin/settings/statistics" element={<Statistics />} />
           <Route path="/admin/settings/records" element={<Records />} />
           <Route path="/admin/settings/results" element={<Results />} />
