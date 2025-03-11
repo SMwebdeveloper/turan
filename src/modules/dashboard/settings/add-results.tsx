@@ -2,7 +2,7 @@ import Ielts from "../../../assets/ielts.png"
 import Upload from "../../../assets/upload.png"
 const AddResults = () => {
   return (
-    <div className="max-w-[1220px] w-full mx-auto pt-8 pb-5 px-10">
+    <div className="admin-container pt-8 pb-5">
       <form className="mx-auto w-[650px] py-[40px] flex flex-col items-center justify-center bg-yellowColor rounded-xl">
         <label htmlFor="uploadeImage" className="mb-[42px]">
           <div className="w-[300px] relative h-[325px] object-cover border-[10px] border-[rgba(255,255,255,.5)] rounded-[10px]">

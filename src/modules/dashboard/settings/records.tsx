@@ -6,7 +6,7 @@ const Records = () => {
   const [visibleModal, setVisibleModal] = useState(false)
   return (
     <div className="relative">
-      <div className="max-w-[1220px] w-full mx-auto pt-8 pb-5 relative">
+      <div className="admin-container pt-8 pb-5 relative">
         <button
           onClick={() => setVisibleModal(true)}
           className="w-[205px] h-[49px] bg-yellowColor text-colorDark text-[20px] font-bold rounded-[10px] ml-auto flex items-center justify-center mb-[17px]"
