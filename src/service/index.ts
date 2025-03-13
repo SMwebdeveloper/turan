@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://turonproject-production.up.railway.app/api/v1",
+    baseUrl: "https://turonproject-5kl6da.fly.dev/api/v1/",
     prepareHeaders: (headers) => {
       const token = sessionStorage.getItem("token");
       if (token) {
@@ -30,7 +30,7 @@ export const apiSlice = createApi({
     }),
     createStatistics: builder.mutation({
       query: (data) => ({
-        url: "/admin/statistics/add/",
+        url: "/admin/statistics/",
         method: "POST",
         body: data,
       }),
@@ -39,12 +39,12 @@ export const apiSlice = createApi({
 
     // get teachers
     getTeachers: builder.query({
-      query: () => "/admin/teachers",
+      query: () => "/admin/teachers/",
       providesTags: ["teachers"]
     }),
     addTeachers: builder.mutation({
       query: (data) => ({
-        url:"/admin/teachers/add",
+        url:"/admin/teachers",
         method:"POST",
         body: data
       }),
@@ -57,4 +57,6 @@ export const {
   useLoginMutation,
   useGetStatisticsQuery,
   useCreateStatisticsMutation,
+  useGetTeachersQuery,
+  useAddTeachersMutation
 } = apiSlice;

@@ -4,7 +4,7 @@ import { Loader } from "../../../components";
 
 const Statistics = () => {
   const [addData, setAddData] = useState({
-    counter: 0,
+    counter: "",
     name: ""
   })
 
@@ -19,7 +19,9 @@ const Statistics = () => {
       setTimeout(() => setValidate(false), 3000)
     } else {
       try {
-        const response = await addStatistics(addData).unwrap()
+        const newData = {counter: Number(addData.counter), name: addData.name}
+        await addStatistics(addData).unwrap()
+        setAddData(() => ({counter: "", name: ""}))
       } catch (error) {
         console.log(error)
       }
@@ -36,7 +38,7 @@ const Statistics = () => {
         </h6>
       </div>
 
-      <div className="w-full flex flex-wrap items-center gap-y-4 justify-between mb-12">
+      <div className="w-full flex flex-wrap items-center gap-y-8 gap-x-[4%] mb-12">
         {isLoading && <Loader />}
         {statistics?.map((item: any) => (
           <div

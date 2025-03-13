@@ -11,7 +11,8 @@ import CheckListsYellow from "../../../assets/task-checklist-yellow.png";
 import Arrow from "../../../assets/arrow.png";
 import User from "../../../assets/teacher.png";
 import CheckCircle from "../../../assets/check-circle.png";
-import { Link } from "react-router-dom";
+import LogOut from "../../../assets/logout.png"
+import { Link, useNavigate } from "react-router-dom";
 
 const AdminHeader = () => {
   const [openFirstSidebar, setOpenFirstSidebar] = useState(false);
@@ -19,6 +20,7 @@ const AdminHeader = () => {
   const [visibleSettingsLinks, setVisibleSettingsLinks] = useState(false);
   const [visibleExamensLinks, setVisibleExamensLinks] = useState(false);
 
+  const navigate = useNavigate()
   const settingsLinks = {
     title: "Sozlamalar",
     links: [
@@ -54,6 +56,11 @@ const AdminHeader = () => {
     ],
   };
 
+  const logOut = () => {
+    sessionStorage.removeItem("token")
+    navigate("/admin/auth/login")
+
+  }
   return (
     <header className="bg-[#1e063a] w-full sticky top-0 z-30">
       <div className="admin-container pb-4 pt-[40px] flex justify-between items-center transition-colors duration-300 ease-in-out ">
@@ -77,6 +84,9 @@ const AdminHeader = () => {
           </button>
           <button className="w-[63px] h-[63px] rounded-full bg-yellowColor flex items-center justify-center">
             <img src={CheckLists} alt="checklist img" />
+          </button>
+          <button onClick={logOut} className="w-[63px] rounded-full bg-yellowColor flex items-center justify-center">
+            <img src={LogOut} alt="log out icon" className="w-[45px] h-[45px]"/>
           </button>
         </div>
       </div>
