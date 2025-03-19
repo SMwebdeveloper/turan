@@ -1,10 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Upload from "../../../assets/upload.png";
-import { useAddTeachersMutation, useUploadImageMutation } from "../../../service/admin";
-import { useNavigate } from "react-router-dom";
+import {
+  useGetTeacherByIdQuery,
+  useUpdateTeacherMutation,
+  useUploadImageMutation,
+} from "../../../service/admin";
+import { useNavigate, useParams } from "react-router-dom";
+import { Loader } from "../../../components";
 
-const AddTeachers = () => {
+const EditTeacher = () => {
   const [teacherData, setTeacherData] = useState({
+    id:"",
     full_name: "",
     CEFR_score: "",
     TYS_score: "",
@@ -14,25 +20,30 @@ const AddTeachers = () => {
   });
   const [validate, setValidate] = useState(false);
   const [image, setImage] = useState("");
+
+  const { id } = useParams();
   const navigate = useNavigate();
 
-  const [createTeacher, { isLoading }] = useAddTeachersMutation();
-  const [uplodaImgFn, {isLoading: uploadLoading}] = useUploadImageMutation()
+  const { data, isLoading: teacherLoading } = useGetTeacherByIdQuery(id);
+  const [updateTeacher, { isLoading }] = useUpdateTeacherMutation();
+  const [uplodaImgFn, { isLoading: uploadLoading }] = useUploadImageMutation();
 
   const uploadImage = async (e: any) => {
     const file = e.target.files[0];
     if (file) {
       try {
-         const formData = new FormData();
-         formData.append("image", file);
-         const {data} = await uplodaImgFn(formData);
-         console.log(data);
-         setImage(data?.image_url);
-         setTeacherData((prev:any) => ({...prev, profile_image: data?.image_url}))
+        const formData = new FormData();
+        formData.append("image", file);
+        const { data } = await uplodaImgFn(formData);
+        console.log(data);
+        setImage(data?.image_url);
+        setTeacherData((prev: any) => ({
+          ...prev,
+          profile_image: data?.image_url,
+        }));
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
-     
     }
   };
   const handleSubmit = async (e: any) => {
@@ -49,7 +60,7 @@ const AddTeachers = () => {
       setTimeout(() => setValidate(false), 3000);
     } else {
       try {
-        await createTeacher({
+        await updateTeacher({
           ...teacherData,
           total_students: Number(teacherData.total_students),
         }).unwrap();
@@ -59,6 +70,27 @@ const AddTeachers = () => {
       }
     }
   };
+
+  useEffect(() => {
+    if (data) {
+      setTeacherData({
+        id: data?.id,
+        full_name: data?.full_name,
+        CEFR_score: data?.CEFR_score,
+        TYS_score: data?.TYS_score,
+        experience: data?.experience,
+        profile_image: data?.profile_image,
+        total_students: data?.total_students,
+      });
+    }
+  }, [data]);
+
+  if (teacherLoading)
+    return (
+      <div className="flex items-center justify-center h-[80vh] w-full">
+        <Loader />
+      </div>
+    );
   return (
     <div className="admin-container pt-8 pb-5 px-10">
       <form
@@ -76,7 +108,7 @@ const AddTeachers = () => {
             />
             {image && (
               <img
-                src={image}
+                src={teacherData.profile_image}
                 alt="ielts image"
                 className="w-full h-full object-cover "
               />
@@ -182,11 +214,11 @@ const AddTeachers = () => {
           </p>
         )}
         <button className="w-[299px] mx-auto bg-white/50 h-[73px] text-[28px] text-colorDark font-bold rounded-xl outline-none border-none px-4">
-          {isLoading ? "Loading..." : "Qo'shish"}
+          {isLoading ? "Loading..." : "Yangilash"}
         </button>
       </form>
     </div>
   );
 };
 
-export default AddTeachers;
+export default EditTeacher;

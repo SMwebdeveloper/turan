@@ -1,32 +1,39 @@
 import React, { useState } from "react";
-import { useCreateStatisticsMutation, useGetStatisticsQuery } from "../../../service";
+import {
+  useCreateStatisticsMutation,
+  useGetStatisticsQuery,
+} from "../../../service/admin";
 import { Loader } from "../../../components";
 
 const Statistics = () => {
   const [addData, setAddData] = useState({
     counter: "",
-    name: ""
-  })
+    name: "",
+  });
 
-  const [validate, setValidate] = useState(false)
-  const {data:statistics, isLoading} = useGetStatisticsQuery(null)
-  const [addStatistics, {isLoading: createLoading}] = useCreateStatisticsMutation()
+  const [validate, setValidate] = useState(false);
+  const { data: statistics, isLoading } = useGetStatisticsQuery(null);
+  const [addStatistics, { isLoading: createLoading }] =
+    useCreateStatisticsMutation();
 
-  const handleSubmit = async (e:React.FormEvent) => {
-    e.preventDefault()
-    if(!addData.counter && !addData.name) {
-      setValidate(true)
-      setTimeout(() => setValidate(false), 3000)
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!addData.counter && !addData.name) {
+      setValidate(true);
+      setTimeout(() => setValidate(false), 3000);
     } else {
       try {
-        const newData = {counter: Number(addData.counter), name: addData.name}
-        await addStatistics(addData).unwrap()
-        setAddData(() => ({counter: "", name: ""}))
+        const newData = {
+          counter: Number(addData.counter),
+          name: addData.name,
+        };
+        await addStatistics(newData).unwrap();
+        setAddData(() => ({ counter: "", name: "" }));
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
     }
-  }
+  };
   return (
     <div className="admin-container pt-11">
       <div className="w-full mx-auto mb-8 h-[137px] flex flex-col items-center justify-center rounded-2xl bg-yellowColor">
@@ -92,6 +99,6 @@ const Statistics = () => {
       </form>
     </div>
   );
-}
+};
 
-export default Statistics
+export default Statistics;
