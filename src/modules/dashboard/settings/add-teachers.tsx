@@ -1,7 +1,11 @@
 import { useState } from "react";
 import Upload from "../../../assets/upload.png";
-import { useAddTeachersMutation, useUploadImageMutation } from "../../../service/admin";
-import { useNavigate } from "react-router-dom";
+import {
+  useAddTeachersMutation,
+  useUploadImageMutation,
+} from "../../../service/admin";
+import { Link, useNavigate } from "react-router-dom";
+import ArrowLeft from "../../../assets/arrow-left.png";
 
 const AddTeachers = () => {
   const [teacherData, setTeacherData] = useState({
@@ -17,22 +21,24 @@ const AddTeachers = () => {
   const navigate = useNavigate();
 
   const [createTeacher, { isLoading }] = useAddTeachersMutation();
-  const [uplodaImgFn, {isLoading: uploadLoading}] = useUploadImageMutation()
+  const [uplodaImgFn, { isLoading: uploadLoading }] = useUploadImageMutation();
 
   const uploadImage = async (e: any) => {
     const file = e.target.files[0];
     if (file) {
       try {
-         const formData = new FormData();
-         formData.append("image", file);
-         const {data} = await uplodaImgFn(formData);
-         console.log(data);
-         setImage(data?.image_url);
-         setTeacherData((prev:any) => ({...prev, profile_image: data?.image_url}))
+        const formData = new FormData();
+        formData.append("image", file);
+        const { data } = await uplodaImgFn(formData);
+        console.log(data);
+        setImage(data?.image_url);
+        setTeacherData((prev: any) => ({
+          ...prev,
+          profile_image: data?.image_url,
+        }));
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
-     
     }
   };
   const handleSubmit = async (e: any) => {
@@ -61,6 +67,12 @@ const AddTeachers = () => {
   };
   return (
     <div className="admin-container pt-8 pb-5 px-10">
+      <Link
+        to={"/admin/settings/teachers"}
+        className="bg-yellowColor w-[80px] h-[50px] rounded-3xl flex items-center justify-center"
+      >
+        <img src={ArrowLeft} alt="arrow image" className="w-[40px] h-[40px]" />
+      </Link>
       <form
         onSubmit={handleSubmit}
         className="mx-auto w-[650px] py-[40px] flex flex-col items-center justify-center bg-yellowColor rounded-xl"

@@ -10,7 +10,7 @@ import { Loader } from "../../../components";
 
 const EditTeacher = () => {
   const [teacherData, setTeacherData] = useState({
-    id:"",
+    id: "",
     full_name: "",
     CEFR_score: "",
     TYS_score: "",
@@ -93,6 +93,12 @@ const EditTeacher = () => {
     );
   return (
     <div className="admin-container pt-8 pb-5 px-10">
+      <Link
+        to={"/admin/settings/teachers"}
+        className="bg-yellowColor w-[80px] h-[50px] rounded-3xl flex items-center justify-center"
+      >
+        <img src={ArrowLeft} alt="arrow image" className="w-[40px] h-[40px]" />
+      </Link>
       <form
         onSubmit={handleSubmit}
         className="mx-auto w-[650px] py-[40px] flex flex-col items-center justify-center bg-yellowColor rounded-xl"

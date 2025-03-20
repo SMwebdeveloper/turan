@@ -8,14 +8,14 @@ const Teachers = () => {
   const { data: teachers, isLoading } = useGetTeachersQuery(null);
   const [deleteTeacher, {isLoading:deleteLoading}] = useDeleteTeacherMutation()
 
-  const handleDeleteTeacher = async (id) => {
+  const handleDeleteTeacher = async (id:any) => {
     try {
       await deleteTeacher(id)
     } catch (error) {
       console.log(error)
     }
   }
-  if (isLoading)
+  if (isLoading || deleteLoading)
     return (
       <div className="flex items-center justify-center h-[80vh] w-full">
         {" "}
@@ -31,7 +31,8 @@ const Teachers = () => {
         Qo'shish
       </Link>
       <div className="w-[90%] mx-auto flex flex-wrap items-center justify-center gap-x-[90px] gap-y-[50px] mb-9">
-        {teachers?.map((item: any) => (
+        {teachers.length == 0 && <h2 className="text-4xl font-bold text-white">O'qituvchilar topilmadi</h2>}
+        {teachers && teachers?.map((item: any) => (
           <div
             key={item.id}
             className="w-[300px] h-[300px] relative  border-8 border-yellowColor rounded-xl"
