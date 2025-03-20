@@ -11,7 +11,7 @@ export const apiSlice = createApi({
       }
     },
   }),
-  tagTypes: ["statistics", "teachers"],
+  tagTypes: ["statistics", "teachers", "students"],
   endpoints: (builder) => ({
     // login
     login: builder.mutation({
@@ -68,12 +68,39 @@ export const apiSlice = createApi({
         url: `/admin/teachers/${id}/`,
         method: "DELETE",
       }),
-      invalidatesTags: ["teachers"]
+      invalidatesTags: ["teachers"],
     }),
 
     // results
     getResults: builder.query({
-      query: () => '/admin/results'
+      query: () => "/admin/students/",
+      providesTags: ["students"],
+    }),
+    getResultsById: builder.query({
+      query: (id) => `/admin/students/${id}/`,
+    }),
+    createResult: builder.mutation({
+      query: (data) => ({
+        url: "/admin/students/",
+        method: "POST",
+        body: data,
+      }),
+      invalidatesTags: ["students"],
+    }),
+    updateResult: builder.mutation({
+      query: (data) => ({
+        url: `/admin/students/${data.id}/`,
+        method: "PUT",
+        body: data,
+      }),
+      invalidatesTags: ["students"]
+    }),
+    deleteResults: builder.mutation({
+      query: (id) => ({
+        url: `/admin/students/${id}/`,
+        method:"DELETE"
+      }),
+      invalidatesTags: ["students"]
     }),
     // upload image
     uploadImage: builder.mutation({
@@ -92,8 +119,13 @@ export const {
   useCreateStatisticsMutation,
   useGetTeachersQuery,
   useAddTeachersMutation,
-  useUploadImageMutation,
   useGetTeacherByIdQuery,
   useUpdateTeacherMutation,
   useDeleteTeacherMutation,
+  useGetResultsQuery,
+  useGetResultsByIdQuery,
+  useCreateResultMutation,
+  useDeleteResultsMutation,
+  useUpdateResultMutation,
+  useUploadImageMutation,
 } = apiSlice;

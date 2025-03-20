@@ -1,15 +1,18 @@
 import Upload from "../../../assets/upload.png";
 import ArrowLeft from "../../../assets/arrow-left.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import {
-  useCreateResultMutation,
+    useGetResultsByIdQuery,
+  useUpdateResultMutation,
   useUploadImageMutation,
 } from "../../../service/admin";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Loader } from "../../../components";
 
-const AddResults = () => {
+const EditResults = () => {
   const [image, setImage] = useState("");
   const [resultData, setResultData] = useState({
+    id:"",
     full_name: "",
     listening: "",
     over_all: "",
@@ -20,8 +23,10 @@ const AddResults = () => {
   });
   const [validate, setValidate] = useState(false);
   const navigate = useNavigate();
+  const {id} = useParams()
 
-  const [createResult, { isLoading }] = useCreateResultMutation();
+  const {data, isLoading: resultLoading} = useGetResultsByIdQuery(id)
+  const [updateResult, { isLoading }] = useUpdateResultMutation();
   const [uplodaImgFn, { isLoading: uploadLoading }] = useUploadImageMutation();
 
   const uploadImage = async (e: any) => {
@@ -61,13 +66,35 @@ const AddResults = () => {
       }, 3000);
     } else {
       try {
-        await createResult(resultData).unwrap();
-        navigate("/admin/settings/results")
+        await updateResult(resultData).unwrap();
+        navigate("/admin/settings/results");
       } catch (error) {
         console.log(error);
       }
     }
   };
+
+  useEffect(() => {
+    if(data) {
+        setResultData({
+          id: data?.id,
+          full_name: data?.full_name,
+          listening: data?.listening,
+          over_all: data?.over_all,
+          reading: data?.reading,
+          sertificate: data?.sertificate,
+          speaking: data?.speaking,
+          writing: data?.writing,
+        });
+    }
+  }, [data])
+
+  if (resultLoading)
+    return (
+      <div className="flex items-center justify-center h-[80vh] w-full">
+        <Loader />
+      </div>
+    );
   return (
     <div className="admin-container pt-8 pb-5">
       <Link
@@ -222,4 +249,4 @@ const AddResults = () => {
   );
 };
 
-export default AddResults;
+export default EditResults;

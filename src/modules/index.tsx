@@ -16,6 +16,7 @@ import AddResults from "./dashboard/settings/add-results";
 import AddTeachers from "./dashboard/settings/add-teachers";
 import AuthLogin from "./dashboard/auth/login";
 import EditTeacher from "./dashboard/settings/edit-teahcer";
+import EditResult from "./dashboard/settings/edit-result";
 export {
   Home,
   Exam,
@@ -34,5 +35,6 @@ export {
   AddResults,
   AddTeachers,
   AuthLogin,
-  EditTeacher
+  EditTeacher,
+  EditResult
 };

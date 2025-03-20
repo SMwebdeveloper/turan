@@ -5,8 +5,9 @@ import {
   useUpdateTeacherMutation,
   useUploadImageMutation,
 } from "../../../service/admin";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Loader } from "../../../components";
+import ArrowLeft from "../../../assets/arrow-left.png"
 
 const EditTeacher = () => {
   const [teacherData, setTeacherData] = useState({
@@ -15,7 +16,7 @@ const EditTeacher = () => {
     CEFR_score: "",
     TYS_score: "",
     experience: "",
-    profile_image: null,
+    profile_image: "",
     total_students: "",
   });
   const [validate, setValidate] = useState(false);
@@ -95,7 +96,7 @@ const EditTeacher = () => {
     <div className="admin-container pt-8 pb-5 px-10">
       <Link
         to={"/admin/settings/teachers"}
-        className="bg-yellowColor w-[80px] h-[50px] rounded-3xl flex items-center justify-center"
+        className="bg-yellowColor w-[80px] h-[50px] rounded-3xl flex items-center justify-center mb-12"
       >
         <img src={ArrowLeft} alt="arrow image" className="w-[40px] h-[40px]" />
       </Link>
@@ -114,7 +115,7 @@ const EditTeacher = () => {
             />
             {image && (
               <img
-                src={teacherData.profile_image}
+                src={teacherData?.profile_image}
                 alt="ielts image"
                 className="w-full h-full object-cover "
               />

@@ -13,7 +13,7 @@ const AddTeachers = () => {
     CEFR_score: "",
     TYS_score: "",
     experience: "",
-    profile_image: null,
+    profile_image: "",
     total_students: "",
   });
   const [validate, setValidate] = useState(false);
@@ -48,7 +48,7 @@ const AddTeachers = () => {
       teacherData.TYS_score == "" &&
       teacherData.experience == "" &&
       teacherData.full_name == "" &&
-      teacherData.profile_image == null &&
+      teacherData.profile_image == "" &&
       teacherData.total_students == ""
     ) {
       setValidate(true);
@@ -69,7 +69,7 @@ const AddTeachers = () => {
     <div className="admin-container pt-8 pb-5 px-10">
       <Link
         to={"/admin/settings/teachers"}
-        className="bg-yellowColor w-[80px] h-[50px] rounded-3xl flex items-center justify-center"
+        className="bg-yellowColor w-[80px] h-[50px] rounded-3xl flex items-center justify-center mb-12"
       >
         <img src={ArrowLeft} alt="arrow image" className="w-[40px] h-[40px]" />
       </Link>

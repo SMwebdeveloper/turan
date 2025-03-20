@@ -24,7 +24,8 @@ import {
   AddResults,
   AddTeachers,
   AuthLogin,
-  EditTeacher
+  EditTeacher,
+  EditResult
 } from "../modules";
 
 const Index = () => {
@@ -48,6 +49,7 @@ const Index = () => {
           <Route path="/admin/settings/results" element={<Results />} />
           <Route path="/admin/settings/teachers" element={<Teachers />} />
           <Route path="/admin/settings/add-results" element={<AddResults />} />
+          <Route path="/admin/settings/edit-result/:id" element={<EditResult/>}/>
           <Route
             path="/admin/settings/add-teachers"
             element={<AddTeachers />}
