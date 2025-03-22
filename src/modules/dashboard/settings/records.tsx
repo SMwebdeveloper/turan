@@ -7,7 +7,7 @@ const Records = () => {
   const [visibleModal, setVisibleModal] = useState(false);
 
   const { data: events, isLoading } = useGetEventsQuery(null);
-
+ console.log(events)
   if (isLoading) return <Loader />;
   return (
     <div className="relative">
