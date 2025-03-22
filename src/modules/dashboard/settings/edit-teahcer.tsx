@@ -7,7 +7,7 @@ import {
 } from "../../../service/admin";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Loader } from "../../../components";
-import ArrowLeft from "../../../assets/arrow-left.png"
+import ArrowLeft from "../../../assets/arrow-left.png";
 
 const EditTeacher = () => {
   const [teacherData, setTeacherData] = useState({
@@ -20,7 +20,6 @@ const EditTeacher = () => {
     total_students: "",
   });
   const [validate, setValidate] = useState(false);
-  const [image, setImage] = useState("");
 
   const { id } = useParams();
   const navigate = useNavigate();
@@ -37,7 +36,6 @@ const EditTeacher = () => {
         formData.append("image", file);
         const { data } = await uplodaImgFn(formData);
         console.log(data);
-        setImage(data?.image_url);
         setTeacherData((prev: any) => ({
           ...prev,
           profile_image: data?.image_url,
@@ -86,12 +84,7 @@ const EditTeacher = () => {
     }
   }, [data]);
 
-  if (teacherLoading)
-    return (
-      <div className="flex items-center justify-center h-[80vh] w-full">
-        <Loader />
-      </div>
-    );
+  if (teacherLoading) return <Loader />;
   return (
     <div className="admin-container pt-8 pb-5 px-10">
       <Link
@@ -113,7 +106,7 @@ const EditTeacher = () => {
               className="hidden"
               onChange={uploadImage}
             />
-            {image && (
+            {teacherData?.profile_image && (
               <img
                 src={teacherData?.profile_image}
                 alt="ielts image"

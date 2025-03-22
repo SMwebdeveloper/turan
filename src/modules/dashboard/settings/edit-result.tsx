@@ -2,7 +2,7 @@ import Upload from "../../../assets/upload.png";
 import ArrowLeft from "../../../assets/arrow-left.png";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import {
-    useGetResultsByIdQuery,
+  useGetResultsByIdQuery,
   useUpdateResultMutation,
   useUploadImageMutation,
 } from "../../../service/admin";
@@ -10,9 +10,8 @@ import { useEffect, useState } from "react";
 import { Loader } from "../../../components";
 
 const EditResults = () => {
-  const [image, setImage] = useState("");
   const [resultData, setResultData] = useState({
-    id:"",
+    id: "",
     full_name: "",
     listening: "",
     over_all: "",
@@ -23,9 +22,9 @@ const EditResults = () => {
   });
   const [validate, setValidate] = useState(false);
   const navigate = useNavigate();
-  const {id} = useParams()
+  const { id } = useParams();
 
-  const {data, isLoading: resultLoading} = useGetResultsByIdQuery(id)
+  const { data, isLoading: resultLoading } = useGetResultsByIdQuery(id);
   const [updateResult, { isLoading }] = useUpdateResultMutation();
   const [uplodaImgFn, { isLoading: uploadLoading }] = useUploadImageMutation();
 
@@ -36,8 +35,6 @@ const EditResults = () => {
         const formData = new FormData();
         formData.append("image", file);
         const { data } = await uplodaImgFn(formData);
-        console.log(data);
-        setImage(data?.image_url);
         setResultData((prev: any) => ({
           ...prev,
           sertificate: data?.image_url,
@@ -75,26 +72,21 @@ const EditResults = () => {
   };
 
   useEffect(() => {
-    if(data) {
-        setResultData({
-          id: data?.id,
-          full_name: data?.full_name,
-          listening: data?.listening,
-          over_all: data?.over_all,
-          reading: data?.reading,
-          sertificate: data?.sertificate,
-          speaking: data?.speaking,
-          writing: data?.writing,
-        });
+    if (data) {
+      setResultData({
+        id: data?.id,
+        full_name: data?.full_name,
+        listening: data?.listening,
+        over_all: data?.over_all,
+        reading: data?.reading,
+        sertificate: data?.sertificate,
+        speaking: data?.speaking,
+        writing: data?.writing,
+      });
     }
-  }, [data])
+  }, [data]);
 
-  if (resultLoading)
-    return (
-      <div className="flex items-center justify-center h-[80vh] w-full">
-        <Loader />
-      </div>
-    );
+  if (resultLoading) return <Loader />;
   return (
     <div className="admin-container pt-8 pb-5">
       <Link
@@ -116,9 +108,9 @@ const EditResults = () => {
               className="hidden"
               onChange={uploadImage}
             />
-            {image && (
+            {resultData?.sertificate && (
               <img
-                src={image}
+                src={resultData?.sertificate}
                 alt="ielts image"
                 className="w-full h-full object-cover "
               />

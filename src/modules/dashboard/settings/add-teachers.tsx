@@ -17,7 +17,6 @@ const AddTeachers = () => {
     total_students: "",
   });
   const [validate, setValidate] = useState(false);
-  const [image, setImage] = useState("");
   const navigate = useNavigate();
 
   const [createTeacher, { isLoading }] = useAddTeachersMutation();
@@ -31,7 +30,6 @@ const AddTeachers = () => {
         formData.append("image", file);
         const { data } = await uplodaImgFn(formData);
         console.log(data);
-        setImage(data?.image_url);
         setTeacherData((prev: any) => ({
           ...prev,
           profile_image: data?.image_url,
@@ -87,9 +85,9 @@ const AddTeachers = () => {
               className="hidden"
               onChange={uploadImage}
             />
-            {image && (
+            {teacherData?.profile_image && (
               <img
-                src={image}
+                src={teacherData?.profile_image}
                 alt="ielts image"
                 className="w-full h-full object-cover "
               />

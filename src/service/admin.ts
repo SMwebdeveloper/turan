@@ -11,7 +11,7 @@ export const apiSlice = createApi({
       }
     },
   }),
-  tagTypes: ["statistics", "teachers", "students"],
+  tagTypes: ["statistics", "teachers", "students", "events", "about"],
   endpoints: (builder) => ({
     // login
     login: builder.mutation({
@@ -93,14 +93,77 @@ export const apiSlice = createApi({
         method: "PUT",
         body: data,
       }),
-      invalidatesTags: ["students"]
+      invalidatesTags: ["students"],
     }),
     deleteResults: builder.mutation({
       query: (id) => ({
         url: `/admin/students/${id}/`,
-        method:"DELETE"
+        method: "DELETE",
       }),
-      invalidatesTags: ["students"]
+      invalidatesTags: ["students"],
+    }),
+    // events
+    getEvents: builder.query({
+      query: () => "/admin/events/",
+      providesTags: ["events"],
+    }),
+    getEventById: builder.query({
+      query: (id) => `/admin/events/${id}`,
+    }),
+    createEvents: builder.mutation({
+      query: (data) => ({
+        url: `/admin/events/`,
+        method: "POST",
+        body: data,
+      }),
+      invalidatesTags: ["events"],
+    }),
+    updateEvents: builder.mutation({
+      query: (data) => ({
+        url: `/admin/events/${data.id}`,
+        method: "PUT",
+        body: data,
+      }),
+      invalidatesTags: ["events"],
+    }),
+    deleteEvent: builder.mutation({
+      query: (id) => ({
+        url: `/admin/events/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["events"],
+    }),
+
+    // about
+    getAbouts: builder.query({
+      query: () => "/admin/about/",
+      providesTags: ["about"],
+    }),
+    getAboutById: builder.query({
+      query: (id) => `/admin/about/${id}/`,
+    }),
+    createAbout: builder.mutation({
+      query: (data) => ({
+        url: `/admin/about/`,
+        method: "POST",
+        body: data,
+      }),
+      invalidatesTags: ["about"],
+    }),
+    updateAbout: builder.mutation({
+      query: (data) => ({
+        url: `/admin/about/${data.id}/`,
+        method: "PUT",
+        body: data,
+      }),
+      invalidatesTags: ["about"],
+    }),
+    deleteAbout: builder.mutation({
+      query: (id) => ({
+        url: `/admin/about/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["about"],
     }),
     // upload image
     uploadImage: builder.mutation({
@@ -127,5 +190,15 @@ export const {
   useCreateResultMutation,
   useDeleteResultsMutation,
   useUpdateResultMutation,
+  useGetEventsQuery,
+  useGetEventByIdQuery,
+  useCreateEventsMutation,
+  useUpdateEventsMutation,
+  useDeleteEventMutation,
+  useGetAboutsQuery,
+  useGetAboutByIdQuery,
+  useCreateAboutMutation,
+  useUpdateAboutMutation,
+  useDeleteAboutMutation,
   useUploadImageMutation,
 } = apiSlice;

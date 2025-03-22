@@ -13,20 +13,14 @@ const Results = () => {
 
   console.log(results);
 
-  const handleDeleteResult = async(id:any) => {
-   try {
-    await deleteResults(id)
-   } catch (error) {
-    console.log(error)
-   }
-  }
-  if (isLoading || deleteLoading)
-    return (
-      <div className="flex items-center justify-center h-[80vh] w-full">
-        {" "}
-        <Loader />
-      </div>
-    );
+  const handleDeleteResult = async (id: any) => {
+    try {
+      await deleteResults(id);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  if (isLoading || deleteLoading) return <Loader />;
   return (
     <div className="admin-container pt-8 pb-5">
       <Link

@@ -8,7 +8,6 @@ import {
 import { useState } from "react";
 
 const AddResults = () => {
-  const [image, setImage] = useState("");
   const [resultData, setResultData] = useState({
     full_name: "",
     listening: "",
@@ -31,8 +30,6 @@ const AddResults = () => {
         const formData = new FormData();
         formData.append("image", file);
         const { data } = await uplodaImgFn(formData);
-        console.log(data);
-        setImage(data?.image_url);
         setResultData((prev: any) => ({
           ...prev,
           sertificate: data?.image_url,
@@ -89,9 +86,9 @@ const AddResults = () => {
               className="hidden"
               onChange={uploadImage}
             />
-            {image && (
+            {resultData?.sertificate && (
               <img
-                src={image}
+                src={resultData?.sertificate}
                 alt="ielts image"
                 className="w-full h-full object-cover "
               />
