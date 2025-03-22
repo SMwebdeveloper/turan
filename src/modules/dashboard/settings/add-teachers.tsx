@@ -36,6 +36,7 @@ const AddTeachers = () => {
           ...prev,
           profile_image: data?.image_url,
         }));
+        console.log()
       } catch (error) {
         console.log(error);
       }
