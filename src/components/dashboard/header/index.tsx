@@ -6,7 +6,6 @@ import Hamburger from "../../../assets/menu-burger-darker.png";
 import Yellowburger from "../../../assets/menu-burger-yellow.png";
 import Notification from "../../../assets/notification-dark.png";
 import NotificationYellow from "../../../assets/notification-yellow.png";
-import CheckLists from "../../../assets/task-checklist-darker.png";
 import CheckListsYellow from "../../../assets/task-checklist-yellow.png";
 import Arrow from "../../../assets/arrow.png";
 import User from "../../../assets/teacher.png";
@@ -82,9 +81,7 @@ const AdminHeader = () => {
           >
             <img src={Notification} alt="notification img" />
           </button>
-          <button className="w-[63px] h-[63px] rounded-full bg-yellowColor flex items-center justify-center">
-            <img src={CheckLists} alt="checklist img" />
-          </button>
+          
           <button onClick={logOut} className="w-[63px] rounded-full bg-yellowColor flex items-center justify-center">
             <img src={LogOut} alt="log out icon" className="w-[45px] h-[45px]"/>
           </button>
