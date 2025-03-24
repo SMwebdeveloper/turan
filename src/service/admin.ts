@@ -128,7 +128,7 @@ export const apiSlice = createApi({
     }),
     deleteEvent: builder.mutation({
       query: (id) => ({
-        url: `/admin/events/${id}`,
+        url: `/admin/events/${id}/`,
         method: "DELETE",
       }),
       invalidatesTags: ["events"],
