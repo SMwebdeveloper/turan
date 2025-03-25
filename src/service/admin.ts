@@ -108,7 +108,7 @@ export const apiSlice = createApi({
       providesTags: ["events"],
     }),
     getEventById: builder.query({
-      query: (id) => `/admin/events/${id}`,
+      query: (id) => `/admin/events/${id}/`,
     }),
     createEvents: builder.mutation({
       query: (data) => ({
@@ -120,7 +120,7 @@ export const apiSlice = createApi({
     }),
     updateEvents: builder.mutation({
       query: (data) => ({
-        url: `/admin/events/${data.id}`,
+        url: `/admin/events/${data.id}/`,
         method: "PUT",
         body: data,
       }),

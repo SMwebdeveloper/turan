@@ -8,7 +8,7 @@ import Register from "./auth/register";
 import Dashboard from "./dashboard";
 import Teachers from "./dashboard/settings/teachers";
 import Statistics from "./dashboard/settings/statistics";
-import Records from "./dashboard/settings/records";
+import Events from "./dashboard/settings/events";
 import Results from "./dashboard/settings/results";
 import AddQuestions from "./dashboard/examens/add-questions";
 import CheckResults from "./dashboard/examens/check-results";
@@ -28,7 +28,7 @@ export {
   Dashboard,
   Statistics,
   Teachers,
-  Records,
+  Events,
   Results,
   AddQuestions,
   CheckResults,

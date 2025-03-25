@@ -18,7 +18,7 @@ import {
   Statistics,
   AddQuestions,
   CheckResults,
-  Records,
+  Events,
   Results,
   Teachers,
   AddResults,
@@ -45,7 +45,7 @@ const Index = () => {
           <Route index element={<Dashboard />} />
           <Route path="/admin/auth/login" element={<AuthLogin />} />
           <Route path="/admin/settings/statistics" element={<Statistics />} />
-          <Route path="/admin/settings/records" element={<Records />} />
+          <Route path="/admin/settings/events" element={<Events />} />
           <Route path="/admin/settings/results" element={<Results />} />
           <Route path="/admin/settings/teachers" element={<Teachers />} />
           <Route path="/admin/settings/add-results" element={<AddResults />} />

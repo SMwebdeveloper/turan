@@ -29,7 +29,7 @@ const AdminHeader = () => {
       },
       {
         linkTitle: "Lavhalar",
-        path: "/admin/settings/records",
+        path: "/admin/settings/events",
       },
       {
         linkTitle: "Natijalar",
