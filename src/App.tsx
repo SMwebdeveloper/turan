@@ -12,6 +12,7 @@ const App = () => {
       "/admin/settings/results",
       "/admin/settings/teachers",
       "/admin/settings/events",
+      "/admin/settings/about",
       "/admin/settings/statistics",
       "/admin/examens/add-questions",
       "/admin/examens/check-results",

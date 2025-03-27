@@ -17,6 +17,7 @@ import AddTeachers from "./dashboard/settings/add-teachers";
 import AuthLogin from "./dashboard/auth/login";
 import EditTeacher from "./dashboard/settings/edit-teahcer";
 import EditResult from "./dashboard/settings/edit-result";
+import About from "./dashboard/settings/about"
 export {
   Home,
   Exam,
@@ -36,5 +37,6 @@ export {
   AddTeachers,
   AuthLogin,
   EditTeacher,
-  EditResult
+  EditResult,
+  About
 };

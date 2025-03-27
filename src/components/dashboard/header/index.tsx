@@ -24,6 +24,10 @@ const AdminHeader = () => {
     title: "Sozlamalar",
     links: [
       {
+        linkTitle: "Haqida",
+        path: "/admin/settings/about",
+      },
+      {
         linkTitle: "Statistika",
         path: "/admin/settings/statistics",
       },
@@ -197,8 +201,8 @@ const AdminHeader = () => {
           >
             <img src={NotificationYellow} alt="notification img" />
           </button>
-          <button className="w-[63px] h-[63px] bg-colorDark rounded-full flex items-center justify-center">
-            <img src={CheckListsYellow} alt="checklist img" />
+          <button onClick={logOut} className="w-[63px] h-[63px] bg-yellowColor border-2 border-colorDark   rounded-full flex items-center justify-center">
+            <img src={LogOut} alt="log out img" className="w-[40px] h-[40px]"/>
           </button>
         </div>
         <div className="flex flex-col gap-y-3">

@@ -136,15 +136,15 @@ export const apiSlice = createApi({
 
     // about
     getAbouts: builder.query({
-      query: () => "/admin/about/",
+      query: () => "/admin/about-us/",
       providesTags: ["about"],
     }),
     getAboutById: builder.query({
-      query: (id) => `/admin/about/${id}/`,
+      query: (id) => `/admin/about-us/${id}/`,
     }),
     createAbout: builder.mutation({
       query: (data) => ({
-        url: `/admin/about/`,
+        url: `/admin/about-us/`,
         method: "POST",
         body: data,
       }),
@@ -152,7 +152,7 @@ export const apiSlice = createApi({
     }),
     updateAbout: builder.mutation({
       query: (data) => ({
-        url: `/admin/about/${data.id}/`,
+        url: `/admin/about-us/${data.id}/`,
         method: "PUT",
         body: data,
       }),
@@ -160,7 +160,7 @@ export const apiSlice = createApi({
     }),
     deleteAbout: builder.mutation({
       query: (id) => ({
-        url: `/admin/about/${id}`,
+        url: `/admin/about-us/${id}/`,
         method: "DELETE",
       }),
       invalidatesTags: ["about"],
