@@ -28,14 +28,6 @@ const Index = () => {
           <ul className="flex gap-[40px] lg:gap-[50px] xl:gap-[65px] lg:text-[20px]">
             <li>
               <Link
-              to={"/"}
-                className={`${darkMode ? "text-black" : "text-white"}`}
-              >
-                Bosh sahifa
-              </Link>
-            </li>
-            <li>
-              <Link
               to={"/courses"}
                 
                 className={`${darkMode ? "text-black" : "text-white"}`}

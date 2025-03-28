@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import {
   useCreateStatisticsMutation,
+  useDeleteStatisticsMutation,
   useGetStatisticsQuery,
 } from "../../../service/admin";
+import DeleteIcon from "../../../assets/delete-icon.png"
 import { Loader } from "../../../components";
 
 const Statistics = () => {
@@ -15,6 +17,15 @@ const Statistics = () => {
   const { data: statistics, isLoading } = useGetStatisticsQuery(null);
   const [addStatistics, { isLoading: createLoading }] =
     useCreateStatisticsMutation();
+  const [deleteStatistics, {isLoading: deleteLoading}]= useDeleteStatisticsMutation()
+
+  const handleDelete = async (id:any) => {
+    try {
+      await deleteStatistics(id)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -34,6 +45,7 @@ const Statistics = () => {
       }
     }
   };
+  if(isLoading || deleteLoading) return <Loader />
   return (
     <div className="admin-container pt-11">
       <div className="w-full mx-auto mb-8 h-[137px] flex flex-col items-center justify-center rounded-2xl bg-yellowColor">
@@ -46,12 +58,14 @@ const Statistics = () => {
       </div>
 
       <div className="w-full flex flex-wrap items-center gap-y-8 gap-x-[4%] mb-12">
-        {isLoading && <Loader />}
         {statistics?.map((item: any) => (
           <div
             key={item?.id}
-            className="w-[199px] h-[193px] rounded-[30px] bg-white flex flex-col items-center justify-center"
+            className="w-[199px] h-[193px] relative rounded-[30px] bg-white flex flex-col items-center justify-center"
           >
+            <button onClick={() => handleDelete(item?.id)} className="absolute top-3 right-3">
+              <img src={DeleteIcon} alt="delete icon" className="w-7"/>
+            </button>
             <h4 className="text-5xl font-bold text-colorDark">
               {item.counter}
             </h4>
@@ -59,7 +73,7 @@ const Statistics = () => {
               {item.name}
             </h6>
           </div>
-        ))}
+        )) }
       </div>
 
       <form

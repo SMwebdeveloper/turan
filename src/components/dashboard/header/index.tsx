@@ -12,6 +12,7 @@ import User from "../../../assets/teacher.png";
 import CheckCircle from "../../../assets/check-circle.png";
 import LogOut from "../../../assets/logout.png"
 import { Link, useNavigate } from "react-router-dom";
+import { useConfirmationRequestMutation, useGetRequestsQuery } from "../../../service/admin";
 
 const AdminHeader = () => {
   const [openFirstSidebar, setOpenFirstSidebar] = useState(false);
@@ -59,6 +60,18 @@ const AdminHeader = () => {
     ],
   };
 
+const {data: request, isLoading} = useGetRequestsQuery(null)
+const [confirmation, {isLoading: checkLoading}] = useConfirmationRequestMutation()
+const handleChange = async (e:any, id: number) => {
+  const value = e.target.value
+  if(value === "on"){
+    try {
+      await confirmation(id).unwrap()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
   const logOut = () => {
     sessionStorage.removeItem("token")
     navigate("/admin/auth/login")
@@ -85,9 +98,16 @@ const AdminHeader = () => {
           >
             <img src={Notification} alt="notification img" />
           </button>
-          
-          <button onClick={logOut} className="w-[63px] rounded-full bg-yellowColor flex items-center justify-center">
-            <img src={LogOut} alt="log out icon" className="w-[45px] h-[45px]"/>
+
+          <button
+            onClick={logOut}
+            className="w-[63px] rounded-full bg-yellowColor flex items-center justify-center"
+          >
+            <img
+              src={LogOut}
+              alt="log out icon"
+              className="w-[45px] h-[45px]"
+            />
           </button>
         </div>
       </div>
@@ -201,63 +221,43 @@ const AdminHeader = () => {
           >
             <img src={NotificationYellow} alt="notification img" />
           </button>
-          <button onClick={logOut} className="w-[63px] h-[63px] bg-yellowColor border-2 border-colorDark   rounded-full flex items-center justify-center">
-            <img src={LogOut} alt="log out img" className="w-[40px] h-[40px]"/>
+          <button
+            onClick={logOut}
+            className="w-[63px] h-[63px] bg-yellowColor border-2 border-colorDark   rounded-full flex items-center justify-center"
+          >
+            <img src={LogOut} alt="log out img" className="w-[40px] h-[40px]" />
           </button>
         </div>
         <div className="flex flex-col gap-y-3">
-          <div className="w-full bg-[rgba(255,255,255,0.4)] p-2 pr-6 rounded-full flex items-center justify-between">
-            <img
-              src={User}
-              alt="user image"
-              className="rounded-full w-[70px] h-[70px] bg-yellowColor object-cover"
-            />
-            <div>
-              <h5 className="text-[24px] leading-8 text-[rgba(30, 6, 58, 1)]">
-                Muhriddin Ismoilov
-              </h5>
-              <p className="text-[#8c6c50] text-[20px] leading-7">
-                02 minut oldi
-              </p>
-            </div>
-            <img
-              src={CheckCircle}
-              alt="check circle"
-              className="w-[35px] h-[35px]"
-            />
-          </div>
-          <div className="w-full bg-[rgba(255,255,255,0.4)] p-2 pr-6 rounded-full flex items-center justify-between">
-            <img
-              src={User}
-              alt="user image"
-              className="rounded-full w-[70px] h-[70px] bg-yellowColor object-cover"
-            />
-            <div>
-              <h5 className="text-[24px] leading-8 text-[rgba(30, 6, 58, 1)]">
-                Muhriddin Ismoilov
-              </h5>
-              <p className="text-[#8c6c50] text-[20px] leading-7">
-                02 minut oldi
-              </p>
-            </div>
-            <h5 className="text-[24px] text-red-700">+5</h5>
-          </div>
-          <div className="w-full bg-[rgba(255,255,255,0.4)] p-2 pr-6 rounded-full flex items-center justify-between">
-            <img
-              src={User}
-              alt="user image"
-              className="rounded-full w-[70px] h-[70px] bg-yellowColor object-cover"
-            />
-            <div>
-              <h5 className="text-[24px] leading-8 text-[rgba(30, 6, 58, 1)]">
-                Muhriddin Ismoilov
-              </h5>
-              <p className="text-[#8c6c50] text-[20px] leading-7">
-                02 minut oldi
-              </p>
-            </div>
-            <h5 className="text-[24px] text-red-700">+7</h5>
-          </div>
+          {!request?.length && (
+            <h4 className="text-center text-4xl text-white font-semibold">
+              So'rovlar topilmadi
+            </h4>
+          )}
+          {isLoading || checkLoading ? (
+            <h4 className="text-center text-4xl text-white font-semibold">Yuklanmoqda...</h4>
+          ) : (
+            request?.map((item: any) => (
+              <div
+                key={item?.id}
+                className="w-full bg-[rgba(255,255,255,0.4)] p-2 px-6 rounded-full flex items-center justify-between"
+              >
+                <div>
+                  <h5 className="text-[24px] leading-8 text-[rgba(30, 6, 58, 1)]">
+                    {item?.full_name}
+                  </h5>
+                  <p className="text-[#8c6c50] text-[20px] leading-7">
+                    {item.phone}
+                  </p>
+                </div>
+                <input
+                  type="checkbox"
+                  onChange={(e: any) => handleChange(e, item?.id)}
+                  className="w-4 h-4 text-colorDark bg-yellowColor border-yellowColor rounded-full focus:ring-colorDark  focus:ring-2"
+                />
+              </div>
+            ))
+          )}
         </div>
       </div>
     </header>
