@@ -64,13 +64,6 @@ const Index = () => {
 
   return (
     <div className="w-[90%] relative m-auto mt-[30px] lg:mt-[50px] pb-[30px]">
-      {/* <div
-        className={`absolute left-[30%] bg-green-600 w-[500px] h-[60px] shadow-2xl rounded-xl flex items-center justify-center text-2xl transition-all duration-300 text-white ${
-          alert ? "top-[-5%]" : "top-[-150%]"
-        }`}
-      >
-        <h4>So‘rov muvaffaqiyatli qabul qilindi!</h4>
-      </div> */}
       <div className="grid gap-4 sm:grid-cols-2 lg:gap-[26px] xl:gap-[30px]">
         <div
           className={`${
@@ -111,6 +104,12 @@ const Index = () => {
                 Iltimos malumotlarni kiriting
               </h4>
             )}
+            {alert && (
+              <h4 className="text-xl text-green-500 text-semibold text-center">
+                So‘rov muvaffaqiyatli qabul qilindi!
+              </h4>
+            )}
+
             <button
               type="submit"
               className={`mt-4 px-5 py-2 block w-full rounded-[10px] sm:text-[12px] lg:text-[18px] lg:py-3 xl:py-4 font-medium ${
