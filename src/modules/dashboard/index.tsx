@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Dashboard = () => {
 const navigate = useNavigate()
 
@@ -18,18 +18,18 @@ useEffect(() => {
       </h1>
 
       <div className="grid grid-cols-2 gap-x-[35px] gap-y-[31px]">
-        <button className="bg-white/25 border border-yellowColor rounded-xl h-[114px] flex items-center justify-center text-yellowColor text-[26px] font-bold cursor-pointer">
+        <Link to={'/admin/settings/results'} className="bg-white/25 border border-yellowColor rounded-xl h-[114px] flex items-center justify-center text-yellowColor text-[26px] font-bold cursor-pointer">
           O'quvchini natijasini qo'shish
-        </button>
-        <button className="bg-white/25 border border-yellowColor rounded-xl h-[114px] flex items-center justify-center text-yellowColor text-[26px] font-bold cursor-pointer">
+        </Link >
+        <Link to={'/admin/settings/events'} className="bg-white/25 border border-yellowColor rounded-xl h-[114px] flex items-center justify-center text-yellowColor text-[26px] font-bold cursor-pointer">
           Lavhalar qo'shish
-        </button>
-        <button className="bg-white/25 border border-yellowColor rounded-xl h-[114px] flex items-center justify-center text-yellowColor text-[26px] font-bold cursor-pointer">
+        </Link>
+        <Link to={'/admin/settings/teachers'} className="bg-white/25 border border-yellowColor rounded-xl h-[114px] flex items-center justify-center text-yellowColor text-[26px] font-bold cursor-pointer">
           O'qituvchini natijasini qo'shish
-        </button>
-        <button className="bg-white/25 border border-yellowColor rounded-xl h-[114px] flex items-center justify-center text-yellowColor text-[26px] font-bold cursor-pointer">
+        </Link >
+        <Link to={'/admin/settings/statistics'} className="bg-white/25 border border-yellowColor rounded-xl h-[114px] flex items-center justify-center text-yellowColor text-[26px] font-bold cursor-pointer">
           Statistikani qo'shish
-        </button>
+        </Link>
       </div>
     </div>
   );

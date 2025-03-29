@@ -122,7 +122,7 @@ const Events = () => {
         }}
       />
       <div>
-        <div className="w-full flex flex-wrap items-center justify-center gap-x-3 px-3 mb-10">
+        <div className="w-full flex flex-wrap items-center justify-center gap-3 px-3 mb-10">
           {events?.length == 0 && (
             <h2 className="text-4xl mx-auto font-bold text-white">
               Lavhalar topilmadi
