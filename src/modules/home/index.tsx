@@ -350,7 +350,7 @@ const Index = () => {
               className="flex gap-6 space-x-4 overflow-x-scroll scrollbar-hide scroll-smooth snap-x snap-mandatory px-3"
             >
               {!events?.results?.length && !eventLoading ? (
-                <h2 className="text-2xl text-white text-center font-medium">
+                <h2 className="text-2xl text-white text-center mx-auto font-medium">
                   Lavhalar topilmadi
                 </h2>
               ) : (
