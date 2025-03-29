@@ -188,7 +188,7 @@ const Index = () => {
             <div className="w-full text-center">
               <SecondLoader />
             </div>
-          ) : (
+          ) : teachers?.results && (
             <div
               className="grid grid-cols-1 gap-5 lg:gap-[60px] xl:gap-[80px] sm:grid-cols-3"
               key={currentTeacher?.id}
@@ -269,7 +269,7 @@ const Index = () => {
             <div className="w-full text-center">
               <SecondLoader />
             </div>
-          ) : (
+          ) : results?.results && (
             <div
               className="grid grid-cols-1 gap-5 lg:gap-[60px] xl:gap-[80px] sm:grid-cols-3  w-[90%] m-auto "
               key={currentStudent?.id}
