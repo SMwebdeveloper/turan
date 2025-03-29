@@ -92,6 +92,13 @@ const Index = () => {
         </h1>
 
         <div className="w-full flex flex-col gap-[40px] ">
+          {!about?.results?.length && !aboutLoading ? (
+            <h2 className="text-2xl text-white text-center font-medium">
+             Malumotlar topilmadi
+            </h2>
+          ) : (
+            ""
+          )}
           {aboutLoading && (
             <div className="w-full text-center">
               <SecondLoader />
@@ -100,7 +107,9 @@ const Index = () => {
           {about?.results?.map((item: any, index: any) => (
             <div
               key={index}
-              className={`flex items-center ${index % 2 === 0 ? "flex-row" : "flex-row-reverse"} gap-[25px] lg:gap-[50px] xl:gap-[60px] sm:flex-row  justify-between`}
+              className={`flex items-center ${
+                index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+              } gap-[25px] lg:gap-[50px] xl:gap-[60px] sm:flex-row  justify-between`}
             >
               <div className="flex items-center sm:w-[76%] lg:w-[40%]">
                 <p
@@ -112,7 +121,11 @@ const Index = () => {
                 </p>
               </div>
               <div className="w-[285px] lg:w-[50%] m-auto ">
-                <img src={item?.image} alt="biz haqimizda" className="w-full h-full object-cover"/>
+                <img
+                  src={item?.image}
+                  alt="biz haqimizda"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           ))}
@@ -133,20 +146,28 @@ const Index = () => {
               <SecondLoader />
             </div>
           )}
+          {!statistics?.results?.length && !statisticLoading ? (
+            <h2 className="text-2xl text-white text-center font-medium">
+              Statistikalar topilmadi
+            </h2>
+          ) : (
+            ""
+          )}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 lg:gap-6 justify-center">
-            {statistics?.results?.map((item: any) => (
-              <div
-                key={item?.id}
-                className="bg-white rounded-[15px] shadow-md flex flex-col items-center py-6"
-              >
-                <h2 className="text-[#1E063A] font-medium text-lg lg:text-2xl">
-                  {item?.counter}
-                </h2>
-                <p className="text-[#1E063A80] text-sm lg:text-lg">
-                  {item?.name}
-                </p>
-              </div>
-            ))}
+            {statistics?.results &&
+              statistics?.results?.map((item: any) => (
+                <div
+                  key={item?.id}
+                  className="bg-white rounded-[15px] shadow-md flex flex-col items-center py-6"
+                >
+                  <h2 className="text-[#1E063A] font-medium text-lg lg:text-2xl">
+                    {item?.counter}
+                  </h2>
+                  <p className="text-[#1E063A80] text-sm lg:text-lg">
+                    {item?.name}
+                  </p>
+                </div>
+              ))}
           </div>
         </div>
 
@@ -158,6 +179,13 @@ const Index = () => {
           >
             Bizning o’qituvchilar
           </h1>
+          {!teachers?.results?.length && !teacherLoading ? (
+            <h2 className="text-2xl text-white text-center font-medium">
+              O'qituvchilar topilmadi
+            </h2>
+          ) : (
+            ""
+          )}
           {teacherLoading ? (
             <div className="w-full text-center">
               <SecondLoader />
@@ -232,6 +260,13 @@ const Index = () => {
         </div>
 
         <div className="w-full bg-[#F8B300] py-[50px]">
+          {!results?.results?.length && !resultLoading ? (
+            <h2 className="text-2xl text-white text-center font-medium">
+              Natijalar topilmadi
+            </h2>
+          ) : (
+            ""
+          )}
           {resultLoading ? (
             <div className="w-full text-center">
               <SecondLoader />
@@ -316,6 +351,13 @@ const Index = () => {
               id="carousel"
               className="flex gap-6 space-x-4 overflow-x-scroll scrollbar-hide scroll-smooth snap-x snap-mandatory px-3"
             >
+              {!events?.results?.length && !eventLoading ? (
+                <h2 className="text-2xl text-white text-center font-medium">
+                  Lavhalar topilmadi
+                </h2>
+              ) : (
+                ""
+              )}
               {eventLoading && (
                 <div className="w-full text-center">
                   <SecondLoader />
@@ -337,28 +379,6 @@ const Index = () => {
                   </div>
                 </div>
               ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="w-full h-auto m-auto ">
-          <div className="relative">
-            <div
-              id="carousel"
-              className="flex gap-6 space-x-4 overflow-x-scroll scrollbar-hide scroll-smooth snap-x snap-mandatory"
-            >
-              {/* {cardLis2.map((item) => (
-                  <div
-                    key={item.id}
-                    className="w-[320px] rounded-[24px] lg:rounded-[30px] lg:w-[420px] snap-center overflow-hidden flex-shrink-0"
-                  >
-                    <div className=" rounded-[20px] lg:rounded-[26px] h-auto flex flex-col  gap-[5px] ">
-                      <div className="flex justify-center h-[220px] lg:h-[280px] overflow-hidden ">
-                        <img src={item.img} alt="img" className="w-full h-full" />
-                      </div>
-                    </div>
-                  </div>
-                ))} */}
             </div>
           </div>
         </div>
