@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Loader } from "../../../components";
 import {
   useCreateAboutMutation,
@@ -8,7 +8,6 @@ import {
   useUpdateAboutMutation,
   useUploadImageMutation,
 } from "../../../service/admin";
-import Img from "../../../assets/card3.png";
 
 const About = () => {
   const [aboutData, setAboutData] = useState({

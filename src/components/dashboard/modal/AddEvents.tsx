@@ -1,4 +1,3 @@
-import React from "react";
 import Upload from "../../../assets/upload.png"
 import { useUploadImageMutation } from "../../../service/admin";
 

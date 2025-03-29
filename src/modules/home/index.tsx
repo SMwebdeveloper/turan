@@ -3,8 +3,6 @@ import { useContext, useState, useEffect } from "react";
 import DarkModeContext from "../../context/darkmodeContext";
 import Hero from "../../assets/hero.png";
 import Hero2 from "../../assets/hero2.png";
-import BizHaqimizda from "../../assets/biz haqimizda.png";
-import BizHaqimizda2 from "../../assets/biz haqimizda2.png";
 import { Link } from "react-router-dom";
 import { useGetAboutQuery, useGetEventsQuery, useGetResultsQuery, useGetStatisticsQuery, useGetTeachersQuery } from "../../service/user";
 import { SecondLoader } from "../../components";

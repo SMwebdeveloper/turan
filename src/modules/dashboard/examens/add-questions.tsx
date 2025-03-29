@@ -1,5 +1,3 @@
-import React from 'react'
-
 const AddQuestions = () => {
   return (
     <div>AddQuestions</div>

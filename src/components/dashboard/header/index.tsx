@@ -6,10 +6,7 @@ import Hamburger from "../../../assets/menu-burger-darker.png";
 import Yellowburger from "../../../assets/menu-burger-yellow.png";
 import Notification from "../../../assets/notification-dark.png";
 import NotificationYellow from "../../../assets/notification-yellow.png";
-import CheckListsYellow from "../../../assets/task-checklist-yellow.png";
 import Arrow from "../../../assets/arrow.png";
-import User from "../../../assets/teacher.png";
-import CheckCircle from "../../../assets/check-circle.png";
 import LogOut from "../../../assets/logout.png"
 import { Link, useNavigate } from "react-router-dom";
 import { useConfirmationRequestMutation, useGetRequestsQuery } from "../../../service/admin";

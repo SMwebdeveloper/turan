@@ -1,4 +1,3 @@
-import Img from "../../assets/ielts.png"
 import { Loader } from "../../components"
 import { useGetResultsQuery } from "../../service/user"
 
