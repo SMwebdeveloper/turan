@@ -1,26 +1,31 @@
+import { useEffect, useState } from "react";
 import Upload from "../../../assets/upload.png";
-import ArrowLeft from "../../../assets/arrow-left.png";
-import { Link, useNavigate } from "react-router-dom";
 import {
-  useCreateResultMutation,
+  useGetTeacherByIdQuery,
+  useUpdateTeacherMutation,
   useUploadImageMutation,
 } from "../../../service/admin";
-import { useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { Loader } from "../../../components";
+import ArrowLeft from "../../../assets/arrow-left.png";
 
-const AddResults = () => {
-  const [resultData, setResultData] = useState({
+const EditTeacher = () => {
+  const [teacherData, setTeacherData] = useState({
+    id: "",
     full_name: "",
-    listening: "",
-    over_all: "",
-    reading: "",
-    sertificate: "",
-    speaking: "",
-    writing: "",
+    CEFR_score: "",
+    TYS_score: "",
+    experience: "",
+    profile_image: "",
+    total_students: "",
   });
   const [validate, setValidate] = useState(false);
+
+  const { id } = useParams();
   const navigate = useNavigate();
 
-  const [createResult, { isLoading }] = useCreateResultMutation();
+  const { data, isLoading: teacherLoading } = useGetTeacherByIdQuery(id);
+  const [updateTeacher, { isLoading }] = useUpdateTeacherMutation();
   const [uplodaImgFn, { isLoading: uploadLoading }] = useUploadImageMutation();
 
   const uploadImage = async (e: any) => {
@@ -30,45 +35,60 @@ const AddResults = () => {
         const formData = new FormData();
         formData.append("image", file);
         const { data } = await uplodaImgFn(formData);
-        setResultData((prev: any) => ({
+        console.log(data);
+        setTeacherData((prev: any) => ({
           ...prev,
-          sertificate: data?.image_url,
+          profile_image: data?.image_url,
         }));
       } catch (error) {
         console.log(error);
       }
     }
   };
-
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-
     if (
-      resultData.full_name == "" &&
-      resultData.listening == "" &&
-      resultData.over_all == "" &&
-      resultData.reading == "" &&
-      resultData.sertificate == "" &&
-      resultData.writing == "" &&
-      resultData.speaking == ""
+      teacherData.CEFR_score == "" &&
+      teacherData.TYS_score == "" &&
+      teacherData.experience == "" &&
+      teacherData.full_name == "" &&
+      teacherData.profile_image == null &&
+      teacherData.total_students == ""
     ) {
       setValidate(true);
-      setTimeout(() => {
-        setValidate(false);
-      }, 3000);
+      setTimeout(() => setValidate(false), 3000);
     } else {
       try {
-        await createResult(resultData).unwrap();
-        navigate("/admin/settings/results")
+        await updateTeacher({
+          ...teacherData,
+          total_students: Number(teacherData.total_students),
+        }).unwrap();
+        navigate("/admin/settings/teachers");
       } catch (error) {
         console.log(error);
       }
     }
   };
+
+  useEffect(() => {
+    if (data) {
+      setTeacherData({
+        id: data?.id,
+        full_name: data?.full_name,
+        CEFR_score: data?.CEFR_score,
+        TYS_score: data?.TYS_score,
+        experience: data?.experience,
+        profile_image: data?.profile_image,
+        total_students: data?.total_students,
+      });
+    }
+  }, [data]);
+
+  if (teacherLoading) return <Loader />;
   return (
-    <div className="admin-container pt-8 pb-5">
+    <div className="admin-container pt-8 pb-5 px-10">
       <Link
-        to={"/admin/settings/results"}
+        to={"/admin/settings/teachers"}
         className="bg-yellowColor w-[80px] h-[50px] rounded-3xl flex items-center justify-center mb-12"
       >
         <img src={ArrowLeft} alt="arrow image" className="w-[40px] h-[40px]" />
@@ -86,9 +106,9 @@ const AddResults = () => {
               className="hidden"
               onChange={uploadImage}
             />
-            {resultData?.sertificate && (
+            {teacherData?.profile_image && (
               <img
-                src={resultData?.sertificate}
+                src={teacherData?.profile_image}
                 alt="ielts image"
                 className="w-full h-full object-cover "
               />
@@ -117,91 +137,73 @@ const AddResults = () => {
           <h4 className="text-xl text-colorDark/50">To'liq Ism</h4>
           <input
             type="text"
-            value={resultData.full_name}
-            onChange={(e) =>
-              setResultData((prev: any) => ({
+            value={teacherData.full_name}
+            onChange={(e: any) => {
+              setTeacherData((prev) => ({
                 ...prev,
                 full_name: e.target.value,
-              }))
-            }
+              }));
+            }}
             className="w-full bg-white/50 h-[73px] text-[28px] text-colorDark font-bold rounded-xl outline-none border-none px-4"
           />
         </label>
 
         <label className="w-[447px] flex items-start justify-between mb-[41px]">
           <div>
-            <h4 className="text-xl text-colorDark/50">Listening</h4>
+            <h4 className="text-xl text-colorDark/50">IELTS bal</h4>
             <input
               type="text"
-              value={resultData.listening}
-              onChange={(e) =>
-                setResultData((prev: any) => ({
+              value={teacherData.TYS_score}
+              onChange={(e: any) => {
+                setTeacherData((prev) => ({
                   ...prev,
-                  listening: e.target.value,
-                }))
-              }
+                  TYS_score: e.target.value,
+                }));
+              }}
               className="w-[174px] bg-white/50 h-[73px] text-[28px] text-colorDark font-bold rounded-xl outline-none border-none px-4"
             />
           </div>
           <div>
-            <h4 className="text-xl text-colorDark/50">Writing</h4>
+            <h4 className="text-xl text-colorDark/50">Yil tajriba</h4>
             <input
               type="text"
-              value={resultData.writing}
-              onChange={(e) =>
-                setResultData((prev: any) => ({
+              value={teacherData.experience}
+              onChange={(e: any) => {
+                setTeacherData((prev) => ({
                   ...prev,
-                  writing: e.target.value,
-                }))
-              }
+                  experience: e.target.value,
+                }));
+              }}
               className="w-[174px] bg-white/50 h-[73px] text-[28px] text-colorDark font-bold rounded-xl outline-none border-none px-4"
             />
           </div>
         </label>
         <label className="w-[447px] flex items-start justify-between mb-[41px]">
           <div>
-            <h4 className="text-xl text-colorDark/50">Reading</h4>
+            <h4 className="text-xl text-colorDark/50">CEFR bal</h4>
             <input
               type="text"
-              value={resultData.reading}
-              onChange={(e) =>
-                setResultData((prev: any) => ({
+              value={teacherData.CEFR_score}
+              onChange={(e: any) => {
+                setTeacherData((prev) => ({
                   ...prev,
-                  reading: e.target.value,
-                }))
-              }
+                  CEFR_score: e.target.value,
+                }));
+              }}
               className="w-[174px] bg-white/50 h-[73px] text-[28px] text-colorDark font-bold rounded-xl outline-none border-none px-4"
             />
           </div>
           <div>
-            <h4 className="text-xl text-colorDark/50">Speaking</h4>
+            <h4 className="text-xl text-colorDark/50">O'quvchilar</h4>
             <input
               type="text"
-              value={resultData.speaking}
-              onChange={(e) =>
-                setResultData((prev: any) => ({
+              value={teacherData.total_students}
+              onChange={(e: any) => {
+                setTeacherData((prev) => ({
                   ...prev,
-                  speaking: e.target.value,
-                }))
-              }
-              className="w-[174px] bg-white/50 h-[73px] text-[28px] text-colorDark font-bold rounded-xl outline-none border-none px-4"
-            />
-          </div>
-        </label>
-        <label className="w-[447px] flex items-center justify-center mb-[41px]">
-          <div>
-            <h4 className="text-xl text-colorDark/50 text-center">
-              Umumiy bal
-            </h4>
-            <input
-              type="text"
-              value={resultData.over_all}
-              onChange={(e) =>
-                setResultData((prev: any) => ({
-                  ...prev,
-                  over_all: e.target.value,
-                }))
-              }
+                  total_students: e.target.value,
+                }));
+              }}
               className="w-[174px] bg-white/50 h-[73px] text-[28px] text-colorDark font-bold rounded-xl outline-none border-none px-4"
             />
           </div>
@@ -212,11 +214,11 @@ const AddResults = () => {
           </p>
         )}
         <button className="w-[299px] mx-auto bg-white/50 h-[73px] text-[28px] text-colorDark font-bold rounded-xl outline-none border-none px-4">
-          {isLoading ? "Loading..." : "Qo'shish"}
+          {isLoading ? "Loading..." : "Yangilash"}
         </button>
       </form>
     </div>
   );
 };
 
-export default AddResults;
+export default EditTeacher;

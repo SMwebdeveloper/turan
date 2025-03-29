@@ -18,11 +18,15 @@ import {
   Statistics,
   AddQuestions,
   CheckResults,
-  Records,
+  Events,
   Results,
   Teachers,
   AddResults,
   AddTeachers,
+  AuthLogin,
+  EditTeacher,
+  EditResult,
+  About
 } from "../modules";
 
 const Index = () => {
@@ -40,12 +44,25 @@ const Index = () => {
         </Route>
         <Route path="/admin" element={<App />}>
           <Route index element={<Dashboard />} />
+          <Route path="/admin/auth/login" element={<AuthLogin />} />
           <Route path="/admin/settings/statistics" element={<Statistics />} />
-          <Route path="/admin/settings/records" element={<Records />} />
+          <Route path="/admin/settings/events" element={<Events />} />
+          <Route path="/admin/settings/about" element={<About />} />
           <Route path="/admin/settings/results" element={<Results />} />
           <Route path="/admin/settings/teachers" element={<Teachers />} />
           <Route path="/admin/settings/add-results" element={<AddResults />} />
-          <Route path="/admin/settings/add-teachers" element={<AddTeachers />} />
+          <Route
+            path="/admin/settings/edit-result/:id"
+            element={<EditResult />}
+          />
+          <Route
+            path="/admin/settings/add-teachers"
+            element={<AddTeachers />}
+          />
+          <Route
+            path="/admin/settings/edit-teacher/:id"
+            element={<EditTeacher />}
+          />
           <Route
             path="/admin/examens/add-questions"
             element={<AddQuestions />}

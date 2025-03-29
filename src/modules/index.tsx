@@ -8,12 +8,16 @@ import Register from "./auth/register";
 import Dashboard from "./dashboard";
 import Teachers from "./dashboard/settings/teachers";
 import Statistics from "./dashboard/settings/statistics";
-import Records from "./dashboard/settings/records";
+import Events from "./dashboard/settings/events";
 import Results from "./dashboard/settings/results";
 import AddQuestions from "./dashboard/examens/add-questions";
 import CheckResults from "./dashboard/examens/check-results";
 import AddResults from "./dashboard/settings/add-results";
 import AddTeachers from "./dashboard/settings/add-teachers";
+import AuthLogin from "./dashboard/auth/login";
+import EditTeacher from "./dashboard/settings/edit-teahcer";
+import EditResult from "./dashboard/settings/edit-result";
+import About from "./dashboard/settings/about"
 export {
   Home,
   Exam,
@@ -25,10 +29,14 @@ export {
   Dashboard,
   Statistics,
   Teachers,
-  Records,
+  Events,
   Results,
   AddQuestions,
   CheckResults,
   AddResults,
-  AddTeachers
+  AddTeachers,
+  AuthLogin,
+  EditTeacher,
+  EditResult,
+  About
 };

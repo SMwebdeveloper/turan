@@ -5,23 +5,28 @@ import { AdminHeader, Footer, Header } from "./components";
 const App = () => {
   const location = useLocation();
   const hideHeaderFooter = ["/login", "/register"].includes(location.pathname);
-  const adminHeaderFooter = [
-    "/admin",
-    "/admin/settings/results",
-    "/admin/settings/teachers",
-    "/admin/settings/records",
-    "/admin/settings/statistics",
-    "/admin/examens/add-questions",
-    "/admin/examens/check-results",
-    "/admin/settings/add-results",
-    "/admin/settings/add-teachers",
-  ].includes(location.pathname);
+  const adminHeaderFooter =
+    [
+      "/admin",
+      "/admin/auth/login",
+      "/admin/settings/results",
+      "/admin/settings/teachers",
+      "/admin/settings/events",
+      "/admin/settings/about",
+      "/admin/settings/statistics",
+      "/admin/examens/add-questions",
+      "/admin/examens/check-results",
+      "/admin/settings/add-results",
+      "/admin/settings/add-teachers",
+    ].includes(location.pathname) ||
+    /^\/admin\/settings\/edit-teacher\/\d+$/.test(location.pathname) ||
+    /^\/admin\/settings\/edit-result\/\d+$/.test(location.pathname);
 
   return (
     <DarkModeProvider>
       {adminHeaderFooter ? (
         <>
-          <AdminHeader />
+          {location.pathname !== "/admin/auth/login" && <AdminHeader />}{" "}
           <Outlet />
         </>
       ) : (

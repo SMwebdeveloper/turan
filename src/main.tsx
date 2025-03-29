@@ -1,14 +1,12 @@
 import { createRoot } from 'react-dom/client'
 import Root from './router/index'
 import './index.css'
-import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
-const queryClient = new QueryClient({
-  defaultOptions:{queries:{retry:4, retryDelay: 1000}}
-})
+import {Provider} from "react-redux"
+import {store} from "./store"
 createRoot(document.getElementById('root')!).render(
  
-   <QueryClientProvider client={queryClient}>
+   <Provider store={store}>
      <Root />
-   </QueryClientProvider>
+   </Provider>
 
 )
