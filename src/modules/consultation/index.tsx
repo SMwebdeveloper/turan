@@ -65,7 +65,7 @@ const Index = () => {
   return (
     <div className="w-[90%] relative m-auto mt-[30px] lg:mt-[50px] pb-[30px]">
       <div
-        className={`absolute top-[-5%] left-[30%] bg-green-600 w-[500px] h-[60px] shadow-2xl rounded-xl flex items-center justify-center text-2xl transition-all duration-300 text-white ${
+        className={`absolute left-[30%] bg-green-600 w-[500px] h-[60px] shadow-2xl rounded-xl flex items-center justify-center text-2xl transition-all duration-300 text-white ${
           alert ? "top-[-5%]" : "top-[-150%]"
         }`}
       >
