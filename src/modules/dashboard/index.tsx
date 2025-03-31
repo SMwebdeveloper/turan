@@ -1,13 +1,6 @@
-import { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 const Dashboard = () => {
-const navigate = useNavigate()
 
-useEffect(() => {
-  if(!sessionStorage.getItem("token")) {
-    navigate("/admin/auth/login")
-  }
-},[])
   return (
     <div className="admin-container mx-auto pt-6 px-14">
       <h1 className="text-[32px] font-bold text-yellowColor text-center mb-9">

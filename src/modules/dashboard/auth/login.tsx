@@ -33,7 +33,7 @@ const Login = () => {
     }
   }, []);
   return (
-    <div className="flex items-center justify-center h-screen w-full">
+    <div className="flex items-center justify-center h-screen w-full bg-[#1e063a]">
       <form
         onSubmit={handleSubmit}
         className="w-[672px] px-[18px] py-[30px] bg-colorDark shadow-md rounded-[30px]"
@@ -45,8 +45,8 @@ const Login = () => {
         <input
           type="email"
           value={userData.email}
-          onChange={(e:any) =>
-            setUserData((prev:any) => ({ ...prev, email: e.target.value }))
+          onChange={(e: any) =>
+            setUserData((prev: any) => ({ ...prev, email: e.target.value }))
           }
           className="w-full py-7 px-4 rounded-[10px] text-white text-xl placeholder:text-xl placeholder:text-white/50 bg-[rgba(217,217,217,0.2)] border border-yellowColor outline-none mb-6"
           placeholder="Email"
@@ -54,8 +54,8 @@ const Login = () => {
         <input
           type="password"
           value={userData.password}
-          onChange={(e:any) =>
-            setUserData((prev:any) => ({ ...prev, password: e.target.value }))
+          onChange={(e: any) =>
+            setUserData((prev: any) => ({ ...prev, password: e.target.value }))
           }
           className="w-full py-7 px-4 rounded-[10px] text-white text-xl placeholder:text-xl placeholder:text-white/50 bg-[rgba(217,217,217,0.2)] border border-yellowColor outline-none mb-6"
           placeholder="Parolni kiriting"

@@ -71,7 +71,7 @@ const handleChange = async (e:any, id: number) => {
 }
   const logOut = () => {
     sessionStorage.removeItem("token")
-    navigate("/admin/auth/login")
+    navigate("/admin/auth/login", {replace: true})
 
   }
   return (
