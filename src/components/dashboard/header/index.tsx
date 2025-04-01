@@ -141,7 +141,7 @@ const handleChange = async (e:any, id: number) => {
           </Link>
         </div>{" "}
         <div className="w-full mb-4 relative">
-          <button
+          {/* <button
             onClick={() => setVisibleSettingsLinks((prev) => !prev)}
             className="flex items-center justify-between w-full text-[32px] text-white pl-10 pr-4 py-4 bg-white/40 rounded-full mb-2 transition-all duration-300"
           >
@@ -173,9 +173,22 @@ const handleChange = async (e:any, id: number) => {
                 <Link to={link.path}>{link.linkTitle}</Link>
               </li>
             ))}
+          </ul> */}
+          <ul
+            className={`w-full transition-all duration-300 overflow-hidden `}
+          >
+            {settingsLinks.links?.map((link, i) => (
+              <li
+                key={i}
+                onClick={() => setOpenFirstSidebar(false)}
+                className="bg-white/25 text-center py-2 rounded-full mb-2 text-[28px] text-white transition-all duration-300"
+              >
+                <Link to={link.path}>{link.linkTitle}</Link>
+              </li>
+            ))}
           </ul>
         </div>
-        <div className="w-full mb-[15px] relative">
+        {/* <div className="w-full mb-[15px] relative">
           <button
             onClick={() => setVisibleExamensLinks((prev) => !prev)}
             className="flex items-center justify-between w-full text-[32px] text-white pl-[42px] pr-[14px] py-[14px] bg-[rgba(255,255,255,0.4)] rounded-full mb-[6px]"
@@ -207,7 +220,7 @@ const handleChange = async (e:any, id: number) => {
               </li>
             ))}
           </ul>
-        </div>
+        </div> */}
       </div>
       {/* right sidebar */}
       <div
@@ -236,7 +249,9 @@ const handleChange = async (e:any, id: number) => {
             </h4>
           )}
           {isLoading || checkLoading ? (
-            <h4 className="text-center text-4xl text-white font-semibold">Yuklanmoqda...</h4>
+            <h4 className="text-center text-4xl text-white font-semibold">
+              Yuklanmoqda...
+            </h4>
           ) : (
             request?.map((item: any) => (
               <div
