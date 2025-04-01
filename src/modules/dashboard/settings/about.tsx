@@ -27,7 +27,6 @@ const About = () => {
   const [getImgUrl, { isLoading: uploadLoading }] = useUploadImageMutation();
   const [deleteAbout, { isLoading: deleteLoading }] = useDeleteAboutMutation();
 
-  console.log(about);
   const uploadImgFn = async (e: any) => {
     const file = e.target.files[0];
     if (file) {
@@ -54,8 +53,7 @@ const About = () => {
 
     const newAbout = { text: aboutData.text, image: aboutData.image };
     try {
-      const response = await createAbout(newAbout);
-      console.log(response);
+      await createAbout(newAbout);
       setAboutData({
         id: 0,
         text: "",
@@ -72,8 +70,7 @@ const About = () => {
       return;
     }
     try {
-      const response = await updateAbout(aboutData).unwrap();
-      console.log(response);
+      await updateAbout(aboutData).unwrap();
       setAboutData({
         id: 0,
         text: "",
@@ -86,14 +83,13 @@ const About = () => {
   };
   const handleDelete = async () => {
     try {
-      const response = await deleteAbout(aboutId);
+  await deleteAbout(aboutId);
        setAboutData({
          id: 0,
          text: "",
          image: "",
        });
        setAboutId(0);
-      console.log(response);
     } catch (error) {
       console.log(error);
     }

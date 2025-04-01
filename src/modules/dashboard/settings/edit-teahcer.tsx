@@ -35,7 +35,6 @@ const EditTeacher = () => {
         const formData = new FormData();
         formData.append("image", file);
         const { data } = await uplodaImgFn(formData);
-        console.log(data);
         setTeacherData((prev: any) => ({
           ...prev,
           profile_image: data?.image_url,

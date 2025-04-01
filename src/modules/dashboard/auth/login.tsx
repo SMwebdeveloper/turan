@@ -1,4 +1,4 @@
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useLoginMutation } from "../../../service/admin";
 import { useNavigate } from "react-router-dom";
 const Login = () => {
@@ -6,7 +6,10 @@ const Login = () => {
     email: "",
     password: "",
   });
-
+  const [validate, setValidate] = useState({
+    status: false,
+    text: "",
+  });
   const navigate = useNavigate();
 
   const [login, { isLoading }] = useLoginMutation();
@@ -15,15 +18,26 @@ const Login = () => {
     if (userData.email && userData.password) {
       try {
         const response = await login(userData).unwrap();
+        if (response.status == 401) {
+        }
 
         if (response.access) {
           sessionStorage.setItem("token", response.access);
           navigate("/admin");
         }
-        console.log(response);
       } catch (error) {
-        console.log(error);
+        setValidate({
+          status: true,
+          text: "Foydalanuvchi topilmadi",
+        });
+        setTimeout(() => setValidate({ status: false, text: "" }), 3000);
       }
+    } else {
+      setValidate({
+        status: true,
+        text: "Malumotlarni kiriting",
+      });
+      setTimeout(() => setValidate({ status: false, text: "" }), 3000);
     }
   };
 
@@ -60,7 +74,11 @@ const Login = () => {
           className="w-full py-7 px-4 rounded-[10px] text-white text-xl placeholder:text-xl placeholder:text-white/50 bg-[rgba(217,217,217,0.2)] border border-yellowColor outline-none mb-6"
           placeholder="Parolni kiriting"
         />
-
+        {validate.status && (
+          <h2 className="text-center text-red-500 font-bold text-3xl mb-4">
+            {validate.text}
+          </h2>
+        )}
         <button className="w-full h-[90px] py-[20px] rounded-[10px] bg-yellowColor text-[32px] font-bold text-white text-center">
           {isLoading ? "Loading..." : "Kirish"}{" "}
         </button>

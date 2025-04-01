@@ -36,7 +36,6 @@ const Events = () => {
       
       try {
         const updateRecordData = await updateRecord(record);
-        console.log(updateRecordData)
         setVisibleEditModal(false)
         setRecordId(0)
       } catch (error) {
@@ -50,7 +49,6 @@ const Events = () => {
       };
       try {
         const response = await createRecord(newRecord);
-        console.log(response);
         setVisibleModal(false);
         setRecord({
           id: 0,
@@ -73,7 +71,6 @@ const Events = () => {
 
   useEffect(() => {
     if (event) {
-      console.log(event);
       setRecord({
         id: event?.id,
         title: event?.title,

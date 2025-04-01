@@ -29,12 +29,10 @@ const AddTeachers = () => {
         const formData = new FormData();
         formData.append("image", file);
         const { data } = await uplodaImgFn(formData);
-        console.log(data);
         setTeacherData((prev: any) => ({
           ...prev,
           profile_image: data?.image_url,
         }));
-        console.log()
       } catch (error) {
         console.log(error);
       }

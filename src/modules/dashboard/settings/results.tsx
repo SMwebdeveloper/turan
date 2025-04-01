@@ -10,9 +10,6 @@ const Results = () => {
   const { data: results, isLoading } = useGetResultsQuery(null);
   const [deleteResults, { isLoading: deleteLoading }] =
     useDeleteResultsMutation();
-
-  console.log(results);
-
   const handleDeleteResult = async (id: any) => {
     try {
       await deleteResults(id);
