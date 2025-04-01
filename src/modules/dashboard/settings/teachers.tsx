@@ -11,7 +11,6 @@ const Teachers = () => {
   const { data: teachers, isLoading } = useGetTeachersQuery(null);
   const [deleteTeacher, { isLoading: deleteLoading }] =
     useDeleteTeacherMutation();
-
   const handleDeleteTeacher = async (id: any) => {
     try {
       await deleteTeacher(id);
@@ -21,14 +20,14 @@ const Teachers = () => {
   };
   if (isLoading || deleteLoading) return <Loader />;
   return (
-    <div className="max-w-[1220px] w-full mx-auto pt-8 pb-5">
+    <div className="admin-container pt-8 pb-5">
       <Link
         to={"/admin/settings/add-teachers"}
         className="w-[205px] h-[49px] bg-yellowColor text-colorDark text-[20px] font-bold rounded-[10px] ml-auto flex items-center justify-center mb-[17px]"
       >
         Qo'shish
       </Link>
-      <div className="w-[90%] mx-auto flex flex-wrap items-center justify-center gap-x-[90px] gap-y-[50px] mb-9">
+      <div className="w-full flex flex-wrap items-center justify-center gap-x-[2.5%] gap-y-[50px] mb-9">
         {teachers.length == 0 && (
           <h2 className="text-4xl font-bold text-white">
             O'qituvchilar topilmadi
@@ -38,7 +37,7 @@ const Teachers = () => {
           teachers?.map((item: any) => (
             <div
               key={item.id}
-              className="w-[300px] h-[300px] relative  border-8 border-yellowColor rounded-xl"
+              className="w-[250px] lg:w-[23%] h-[300px] relative  border-8 border-yellowColor rounded-xl"
             >
               <img
                 src={item.profile_image}
@@ -70,7 +69,7 @@ const Teachers = () => {
                 </button>
               </div>
 
-              <button className="bg-yellowColor w-[287px] h-[15%]  text-center text-xl font-bold">
+              <button className="bg-yellowColor w-full h-[15%]  text-center text-xl font-bold">
                 {item.full_name}
               </button>
             </div>

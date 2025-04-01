@@ -18,6 +18,9 @@ import AuthLogin from "./dashboard/auth/login";
 import EditTeacher from "./dashboard/settings/edit-teahcer";
 import EditResult from "./dashboard/settings/edit-result";
 import About from "./dashboard/settings/about"
+import Course from "./dashboard/settings/course";
+import AddCourse from "./dashboard/settings/add-course";
+import EditCourse from "./dashboard/settings/edit-course";
 export {
   Home,
   Exam,
@@ -38,5 +41,8 @@ export {
   AuthLogin,
   EditTeacher,
   EditResult,
-  About
+  About,
+  Course,
+  AddCourse,
+  EditCourse
 };

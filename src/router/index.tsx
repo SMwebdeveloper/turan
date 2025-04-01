@@ -27,6 +27,9 @@ import {
   EditTeacher,
   EditResult,
   About,
+  Course,
+  AddCourse,
+  EditCourse,
 } from "../modules";
 import ProtectedRoute from "./protectedRoute";
 
@@ -54,6 +57,12 @@ const Index = () => {
             <Route path="/admin/settings/about" element={<About />} />
             <Route path="/admin/settings/results" element={<Results />} />
             <Route path="/admin/settings/teachers" element={<Teachers />} />
+            <Route path="/admin/settings/courses" element={<Course />} />
+            <Route path="/admin/settings/add-course" element={<AddCourse />} />
+            <Route
+              path="/admin/settings/edit-course/:id"
+              element={<EditCourse />}
+            />
             <Route
               path="/admin/settings/add-results"
               element={<AddResults />}

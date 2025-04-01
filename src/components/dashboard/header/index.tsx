@@ -41,6 +41,10 @@ const AdminHeader = () => {
         linkTitle: "O'qituvchilar",
         path: "/admin/settings/teachers",
       },
+      {
+        linkTitle: "Kurslar",
+        path: "/admin/settings/courses",
+      },
     ],
   };
   const examensLinks = {

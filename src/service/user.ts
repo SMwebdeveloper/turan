@@ -28,6 +28,10 @@ export const userApiSlice = createApi({
     getAbout: builder.query({
         query: () => '/about-us/'
     }),
+    // course
+    getCourses: builder.query({
+      query: () => '/courses/' 
+    }),
     // request
     createRequest: builder.mutation({
       query: (data) => ({
@@ -46,5 +50,6 @@ export const {
     useGetResultsQuery,
     useGetStatisticsQuery,
     useGetTeachersQuery,
+    useGetCoursesQuery,
     useCreateRequestMutation
 } = userApiSlice;

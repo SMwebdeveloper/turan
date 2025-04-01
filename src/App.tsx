@@ -18,9 +18,12 @@ const App = () => {
       "/admin/examens/check-results",
       "/admin/settings/add-results",
       "/admin/settings/add-teachers",
+      "/admin/settings/courses",
+      "/admin/settings/add-course",
     ].includes(location.pathname) ||
     /^\/admin\/settings\/edit-teacher\/\d+$/.test(location.pathname) ||
-    /^\/admin\/settings\/edit-result\/\d+$/.test(location.pathname);
+    /^\/admin\/settings\/edit-result\/\d+$/.test(location.pathname) ||
+    /^\/admin\/settings\/edit-course\/\d+$/.test(location.pathname);
 
   return (
     <DarkModeProvider>

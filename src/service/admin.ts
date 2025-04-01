@@ -18,6 +18,7 @@ export const apiSlice = createApi({
     "events",
     "about",
     "request",
+    "courses",
   ],
   endpoints: (builder) => ({
     // login
@@ -47,9 +48,9 @@ export const apiSlice = createApi({
     deleteStatistics: builder.mutation({
       query: (id) => ({
         url: `/admin/statistics/${id}/`,
-        method: "DELETE"
+        method: "DELETE",
       }),
-      invalidatesTags: ["statistics"]
+      invalidatesTags: ["statistics"],
     }),
 
     // get teachers
@@ -192,6 +193,37 @@ export const apiSlice = createApi({
       }),
       invalidatesTags: ["request"],
     }),
+    // course
+    getCourses: builder.query({
+      query: () => "/admin/courses/",
+      providesTags: ["courses"],
+    }),
+    getCourseById: builder.query({
+      query: (id) => `/admin/courses/${id}/`,
+    }),
+    createCourse: builder.mutation({
+      query: (data) => ({
+        url: "/admin/courses/",
+        method: "POST",
+        body: data,
+      }),
+      invalidatesTags: ["courses"],
+    }),
+    updateCourse: builder.mutation({
+      query: (data) => ({
+        url: `/admin/courses/${data.id}/`,
+        method: "PUT",
+        body: data,
+      }),
+      invalidatesTags: ["courses"],
+    }),
+    deleteCourse: builder.mutation({
+      query: (id) => ({
+        url: `/admin/courses/${id}/`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["courses"],
+    }),
     // upload image
     uploadImage: builder.mutation({
       query: (e) => ({
@@ -230,5 +262,10 @@ export const {
   useGetRequestsQuery,
   useConfirmationRequestMutation,
   useDeleteStatisticsMutation,
+  useGetCoursesQuery,
+  useGetCourseByIdQuery,
+  useCreateCourseMutation,
+  useUpdateCourseMutation,
+  useDeleteCourseMutation,
   useUploadImageMutation,
 } = apiSlice;
