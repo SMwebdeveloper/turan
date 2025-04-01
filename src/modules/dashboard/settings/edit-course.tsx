@@ -37,32 +37,26 @@ const EditCourse = () => {
     }
 
     try {
-      const response = await updateCourse(courseData);
-      if (!response.data) {
-        setValidate(true);
-        setTimeout(() => setValidate(false), 3000);
-        return false;
-      } else {
-        setCourseData({ id: 0, title: "", description: "", price: "" });
-        navigate("/admin/settings/courses");
-      }
+      await updateCourse(courseData);
+      setCourseData({ id: 0, title: "", description: "", price: "" });
+      navigate("/admin/settings/courses");
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
-    if(course) {
-        setCourseData({
-            id: course?.id,
-            title: course?.title,
-            description: course?.description,
-            price: course?.price
-        })
+    if (course) {
+      setCourseData({
+        id: course?.id,
+        title: course?.title,
+        description: course?.description,
+        price: course?.price,
+      });
     }
   }, [course]);
 
-  if(courseLoading) return <Loader/>
+  if (courseLoading) return <Loader />;
   return (
     <div className="admin-container pt-8 pb-5 px-10">
       <Link

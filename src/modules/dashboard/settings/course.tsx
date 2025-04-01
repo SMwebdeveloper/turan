@@ -6,14 +6,11 @@ import {
 } from "../../../service/admin";
 import DeleteIcon from "../../../assets/delete-icon.png";
 import PenCircle from "../../../assets/edit-icon.png";
-import { useState } from "react";
 
 const Course = () => {
-  const [courseId, setCourseId] = useState(0);
   const { data: courses, isLoading } = useGetCoursesQuery(null);
   const [deleteCourse, { isLoading: deleteLoading }] =
     useDeleteCourseMutation();
-  console.log(courses);
   const handleDelete = async (id: any) => {
     try {
       await deleteCourse(id);

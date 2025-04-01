@@ -23,15 +23,9 @@ const AddCourse = () => {
     }
 
     try {
-      const response = await createCourse(courseData);
-      if (!response.data) {
-        setValidate(true)
-        setTimeout(() => setValidate(false), 3000)
-        return;
-      } else {
-        setCourseData({ title: "", description: "", price: "" });
-        navigate("/admin/settings/courses");
-      }
+      await createCourse(courseData);
+      setCourseData({ title: "", description: "", price: "" });
+      navigate("/admin/settings/courses");
     } catch (error) {
       console.log(error);
     }

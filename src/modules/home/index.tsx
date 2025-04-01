@@ -105,9 +105,7 @@ const Index = () => {
           {about?.results?.map((item: any, index: any) => (
             <div
               key={index}
-              className={`flex items-center ${
-                index % 2 === 0 ? "flex-row" : "flex-row-reverse"
-              } gap-[25px] lg:gap-[50px] xl:gap-[60px] sm:flex-row  justify-between`}
+              className={`flex items-center flex-col lg:flex-row gap-[25px] lg:gap-[50px] xl:gap-[60px] sm:flex-row  justify-between`}
             >
               <div className="flex items-center sm:w-[76%] lg:w-[40%]">
                 <p
@@ -118,7 +116,7 @@ const Index = () => {
                   {item?.text}
                 </p>
               </div>
-              <div className="w-[285px] lg:w-[50%] m-auto ">
+              <div className="w-full lg:w-[50%] m-auto ">
                 <img
                   src={item?.image}
                   alt="biz haqimizda"

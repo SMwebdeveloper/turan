@@ -71,7 +71,7 @@ const Index = () => {
           } rounded-[30px] lg:gap-[26px] xl:gap-[30px] px-[18px] lg:px-[30px] py-[40px] flex flex-col gap-[10px] justify-center`}
         >
           <h1 className="text-[#1E063A] text-[28px]  font-bold text-center sm:text-[24px] lg:text-[38px] xl:text-[46px]">
-            Bepul konsultatsiya
+            Kursga yozilish
           </h1>
           <p className="text-[#1E063A80] sm:text-[12px] lg:text-[18px] xl:text-[20px]">
             Telefon raqamingizni yozib bizga yuboring va biz sizga aloqaga

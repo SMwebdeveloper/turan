@@ -28,34 +28,28 @@ const Index = () => {
           <ul className="flex gap-[40px] lg:gap-[50px] xl:gap-[65px] lg:text-[20px]">
             <li>
               <Link
-              to={"/courses"}
-                
+                to={"/"}
+                className={`${darkMode ? "text-black" : "text-white"}`}
+              >
+                Bosh sahifa
+              </Link>
+            </li>
+            <li>
+              <Link
+                to={"/courses"}
                 className={`${darkMode ? "text-black" : "text-white"}`}
               >
                 Kurslar
-              </Link>
-            </li>
-            <li>
-              <Link
-              to={"/exam"}
-                className={`${darkMode ? "text-black" : "text-white"}`}
-              >
-                Imtixon
-              </Link>
-            </li>
-            <li>
-              <Link
-                to={"/consultation"}
-                className={`${darkMode ? "text-black" : "text-white"}`}
-              >
-                Konsultatsiya
               </Link>
             </li>
           </ul>
         </div>
 
         <div className="hidden md:flex items-center gap-[30px] lg:gap-[40px] xl:gap-[45px] ">
-          <Link to={"/"} className="w-[35px] h-[35px] rounded-[50%] lg:w-[40px] lg:h-[40px]">
+          <Link
+            to={"/"}
+            className="w-[35px] h-[35px] rounded-[50%] lg:w-[40px] lg:h-[40px]"
+          >
             <img src={Uzb} alt="uzb flag" />
           </Link>
 
@@ -70,7 +64,10 @@ const Index = () => {
             />
           </button>
 
-          <Link to={"./login"} className="bg-[#F8B300] font-[Yantramanav] py-[6px] px-[25px] rounded-[10px] lg:py-[8px] lg:px-[30px] lg:text-[20px] hover:scale-110 transition duration-500  ease-in-out">
+          <Link
+            to={"./login"}
+            className="bg-[#F8B300] font-[Yantramanav] py-[6px] px-[25px] rounded-[10px] lg:py-[8px] lg:px-[30px] lg:text-[20px] hover:scale-110 transition duration-500  ease-in-out"
+          >
             Kirish
           </Link>
         </div>
@@ -103,7 +100,10 @@ const Index = () => {
       >
         <div className="w-[auto] h-[45px] my-2 mx-6 flex items-center gap-[50px]">
           <img src={Logo} alt="Turan Logo" className="w-[45px] h-[45px]" />
-          <button onClick={toggleDarkMode} className="bg-[#F8B300] w-[35px] h-[35px] p-1 rounded-[50%]">
+          <button
+            onClick={toggleDarkMode}
+            className="bg-[#F8B300] w-[35px] h-[35px] p-1 rounded-[50%]"
+          >
             <img
               src={darkMode ? Light : Dark}
               alt="dark, light"
@@ -135,7 +135,7 @@ const Index = () => {
           </li>
           <li>
             <Link
-             to={"/exam"}
+              to={"/exam"}
               className={`${
                 darkMode ? "text-black" : "text-white"
               } font-[Yantramanav]`}
@@ -156,7 +156,10 @@ const Index = () => {
         </ul>
 
         <div className="flex mx-6 items-center gap-[40px]">
-          <Link to={"./login"} className="font-[Yantramanav] bg-[#F8B300] py-[7px] px-[22px] rounded-[10px] hover:scale-110 transition duration-500  ease-in-out">
+          <Link
+            to={"./login"}
+            className="font-[Yantramanav] bg-[#F8B300] py-[7px] px-[22px] rounded-[10px] hover:scale-110 transition duration-500  ease-in-out"
+          >
             Kirish
           </Link>
           <div
