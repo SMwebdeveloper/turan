@@ -61,9 +61,12 @@ const Index = () => {
               berishuchun doim siz bilanmiz. Eng yuqori maqsadni qo'ying Hoziroq
               bepul sinov darsiga yoziling.
             </p>
-            <button className="bg-[#F8B300] py-[7px] rounded-[10px] text-[Yantramanav] text-[#1E063A] lg:text-[18px] xl:text-[24px] lg:w-[478px] lg:py-[8px] hover:scale-110 transition duration-500  ease-in-out">
+            <Link
+              to={"/request"}
+              className="bg-[#F8B300] text-center py-[7px] rounded-[10px] text-[Yantramanav] text-[#1E063A] lg:text-[18px] xl:text-[24px] lg:w-[478px] lg:py-[8px] hover:scale-110 transition duration-500  ease-in-out"
+            >
               Kursga yozilish
-            </button>
+            </Link>
           </div>
           <div>
             <div className="relative flex justify-center items-center overflow-hidden lg:justify-end">
@@ -92,7 +95,7 @@ const Index = () => {
         <div className="w-full flex flex-col gap-[40px] ">
           {!about?.results?.length && !aboutLoading ? (
             <h2 className="text-2xl text-white text-center font-medium">
-             Malumotlar topilmadi
+              Malumotlar topilmadi
             </h2>
           ) : (
             ""
@@ -186,62 +189,64 @@ const Index = () => {
             <div className="w-full text-center">
               <SecondLoader />
             </div>
-          ) : teachers?.results && (
-            <div
-              className="grid grid-cols-1 gap-5 lg:gap-[60px] xl:gap-[80px] sm:grid-cols-3"
-              key={currentTeacher?.id}
-            >
-              <div className="flex justify-evenly sm:flex-col gap-[30px]">
-                <div className="border-[3px] border-[#F8B300] rounded-[16px] md:rounded-[22px] py-4 lg:py-5 px-5 flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out opacity-100">
-                  <h1 className="text-[#F8B300] text-[24px] md:text-[30px] lg:text-[36px] xl:text-[48px] font-bold">
-                    {currentTeacher?.TYS_score}
-                  </h1>
-                  <p className="text-[#F8B300] text-[18px] font-bold lg:text-[28px] xl:text-[34px] text-[Yantramanav]">
-                    <span className="font-bold">IELTS </span> bal
-                  </p>
+          ) : (
+            teachers?.results && (
+              <div
+                className="grid grid-cols-1 gap-5 lg:gap-[60px] xl:gap-[80px] sm:grid-cols-3"
+                key={currentTeacher?.id}
+              >
+                <div className="flex justify-evenly sm:flex-col gap-[30px]">
+                  <div className="border-[3px] border-[#F8B300] rounded-[16px] md:rounded-[22px] py-4 lg:py-5 px-5 flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out opacity-100">
+                    <h1 className="text-[#F8B300] text-[24px] md:text-[30px] lg:text-[36px] xl:text-[48px] font-bold">
+                      {currentTeacher?.TYS_score}
+                    </h1>
+                    <p className="text-[#F8B300] text-[18px] font-bold lg:text-[28px] xl:text-[34px] text-[Yantramanav]">
+                      <span className="font-bold">IELTS </span> bal
+                    </p>
+                  </div>
+                  <div className="border-[3px] border-[#F8B300] rounded-[16px] md:rounded-[22px] py-4 lg:py-5 px-5 flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out opacity-100">
+                    <h1 className="text-[#F8B300] text-[24px] md:text-[30px] lg:text-[36px] xl:text-[48px] font-bold">
+                      {currentTeacher?.CEFR_score}
+                    </h1>
+                    <p className="text-[#F8B300] text-[18px] font-bold lg:text-[28px] xl:text-[34px] text-[Yantramanav]">
+                      <span className="font-bold">CEFR </span> bal
+                    </p>
+                  </div>
                 </div>
-                <div className="border-[3px] border-[#F8B300] rounded-[16px] md:rounded-[22px] py-4 lg:py-5 px-5 flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out opacity-100">
-                  <h1 className="text-[#F8B300] text-[24px] md:text-[30px] lg:text-[36px] xl:text-[48px] font-bold">
-                    {currentTeacher?.CEFR_score}
-                  </h1>
-                  <p className="text-[#F8B300] text-[18px] font-bold lg:text-[28px] xl:text-[34px] text-[Yantramanav]">
-                    <span className="font-bold">CEFR </span> bal
-                  </p>
-                </div>
-              </div>
 
-              <div className="w-[80%] m-auto flex flex-col justify-end items-center relative transition-opacity duration-500 ease-in-out opacity-100">
-                <img
-                  src={currentTeacher?.profile_image}
-                  alt="teacher"
-                  className="w-[80%]"
-                />
-                <div className="flex justify-center w-full items-center rounded-[26px] bg-[#F8B300] py-3 absolute ">
-                  <h1 className="text-[#1E063A] text-[18px] font-bold lg:text-[24px]">
-                    {currentTeacher?.full_name}
-                  </h1>
+                <div className="w-[80%] m-auto flex flex-col justify-end items-center relative transition-opacity duration-500 ease-in-out opacity-100">
+                  <img
+                    src={currentTeacher?.profile_image}
+                    alt="teacher"
+                    className="w-[80%]"
+                  />
+                  <div className="flex justify-center w-full items-center rounded-[26px] bg-[#F8B300] py-3 absolute ">
+                    <h1 className="text-[#1E063A] text-[18px] font-bold lg:text-[24px]">
+                      {currentTeacher?.full_name}
+                    </h1>
+                  </div>
                 </div>
-              </div>
 
-              <div className="flex justify-evenly sm:flex-col gap-[30px]">
-                <div className="border-[3px] border-[#F8B300] rounded-[16px] md:rounded-[22px] py-3 px-5 flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out opacity-100">
-                  <h1 className="text-[#F8B300] text-[24px] md:text-[30px] lg:text-[36px] xl:text-[48px] font-bold">
-                    {currentTeacher?.experience}
-                  </h1>
-                  <p className="text-[#F8B300] text-[18px] font-bold lg:text-[28px] xl:text-[34px] text-[Yantramanav]">
-                    <span className="font-bold">YIL </span> tajriba
-                  </p>
-                </div>
-                <div className="border-[3px] border-[#F8B300] rounded-[24px] md:rounded-[22px] py-3 px-5 flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out opacity-100">
-                  <h1 className="text-[#F8B300] text-[24px] md:text-[30px] lg:text-[36px] xl:text-[48px] font-bold">
-                    {currentTeacher?.total_students}
-                  </h1>
-                  <p className="text-[#F8B300] text-[18px] font-bold lg:text-[28px] xl:text-[34px] text-[Yantramanav]">
-                    O’quvchilar
-                  </p>
+                <div className="flex justify-evenly sm:flex-col gap-[30px]">
+                  <div className="border-[3px] border-[#F8B300] rounded-[16px] md:rounded-[22px] py-3 px-5 flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out opacity-100">
+                    <h1 className="text-[#F8B300] text-[24px] md:text-[30px] lg:text-[36px] xl:text-[48px] font-bold">
+                      {currentTeacher?.experience}
+                    </h1>
+                    <p className="text-[#F8B300] text-[18px] font-bold lg:text-[28px] xl:text-[34px] text-[Yantramanav]">
+                      <span className="font-bold">YIL </span> tajriba
+                    </p>
+                  </div>
+                  <div className="border-[3px] border-[#F8B300] rounded-[24px] md:rounded-[22px] py-3 px-5 flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out opacity-100">
+                    <h1 className="text-[#F8B300] text-[24px] md:text-[30px] lg:text-[36px] xl:text-[48px] font-bold">
+                      {currentTeacher?.total_students}
+                    </h1>
+                    <p className="text-[#F8B300] text-[18px] font-bold lg:text-[28px] xl:text-[34px] text-[Yantramanav]">
+                      O’quvchilar
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
+            )
           )}
         </div>
       </div>
@@ -267,57 +272,59 @@ const Index = () => {
             <div className="w-full text-center">
               <SecondLoader />
             </div>
-          ) : results?.results && (
-            <div
-              className="grid grid-cols-1 gap-5 lg:gap-[60px] xl:gap-[80px] sm:grid-cols-3  w-[90%] m-auto "
-              key={currentStudent?.id}
-            >
-              <div className="flex justify-evenly sm:flex-col gap-[30px]">
-                <div className="border-[3px] border-[white] rounded-[16px] md:rounded-[22px] py-4 lg:py-5 px-5 flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out opacity-100">
-                  <h1 className="text-[white] text-[24px] md:text-[30px] lg:text-[36px] xl:text-[48px] font-bold">
-                    {currentStudent?.listening}
-                  </h1>
-                  <p className="text-[white] text-[18px] font-bold lg:text-[28px] xl:text-[34px] text-[Yantramanav]">
-                    listening
-                  </p>
+          ) : (
+            results?.results && (
+              <div
+                className="grid grid-cols-1 gap-5 lg:gap-[60px] xl:gap-[80px] sm:grid-cols-3  w-[90%] m-auto "
+                key={currentStudent?.id}
+              >
+                <div className="flex justify-evenly sm:flex-col gap-[30px]">
+                  <div className="border-[3px] border-[white] rounded-[16px] md:rounded-[22px] py-4 lg:py-5 px-5 flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out opacity-100">
+                    <h1 className="text-[white] text-[24px] md:text-[30px] lg:text-[36px] xl:text-[48px] font-bold">
+                      {currentStudent?.listening}
+                    </h1>
+                    <p className="text-[white] text-[18px] font-bold lg:text-[28px] xl:text-[34px] text-[Yantramanav]">
+                      listening
+                    </p>
+                  </div>
+                  <div className="border-[3px] border-[white] rounded-[16px] md:rounded-[22px] py-4 lg:py-5 px-5 flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out opacity-100">
+                    <h1 className="text-[white] text-[24px] md:text-[30px] lg:text-[36px] xl:text-[48px] font-bold">
+                      {currentStudent?.reading}
+                    </h1>
+                    <p className="text-[white] text-[18px] font-bold lg:text-[28px] xl:text-[34px] text-[Yantramanav]">
+                      reading
+                    </p>
+                  </div>
                 </div>
-                <div className="border-[3px] border-[white] rounded-[16px] md:rounded-[22px] py-4 lg:py-5 px-5 flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out opacity-100">
-                  <h1 className="text-[white] text-[24px] md:text-[30px] lg:text-[36px] xl:text-[48px] font-bold">
-                    {currentStudent?.reading}
-                  </h1>
-                  <p className="text-[white] text-[18px] font-bold lg:text-[28px] xl:text-[34px] text-[Yantramanav]">
-                    reading
-                  </p>
-                </div>
-              </div>
 
-              <div className="w-[80%] m-auto flex flex-col justify-end items-center ">
-                <img
-                  src={currentStudent?.sertificate}
-                  alt="teacher"
-                  className="w-[80%]"
-                />
-              </div>
+                <div className="w-[80%] m-auto flex flex-col justify-end items-center ">
+                  <img
+                    src={currentStudent?.sertificate}
+                    alt="teacher"
+                    className="w-[80%]"
+                  />
+                </div>
 
-              <div className="flex justify-evenly sm:flex-col gap-[30px]">
-                <div className="border-[3px] border-[white] rounded-[16px] md:rounded-[22px] py-3 px-5 flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out opacity-100">
-                  <h1 className="text-[white] text-[24px] md:text-[30px] lg:text-[36px] xl:text-[48px] font-bold">
-                    {currentStudent?.writing}
-                  </h1>
-                  <p className="text-[white] text-[18px] font-bold lg:text-[28px] xl:text-[34px] text-[Yantramanav]">
-                    writing
-                  </p>
-                </div>
-                <div className="border-[3px] border-[white] rounded-[24px] md:rounded-[22px] py-3 px-5 flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out opacity-100">
-                  <h1 className="text-[white] text-[24px] md:text-[30px] lg:text-[36px] xl:text-[48px] font-bold">
-                    {currentStudent?.speaking}
-                  </h1>
-                  <p className="text-[white] text-[18px] font-bold lg:text-[28px] xl:text-[34px] text-[Yantramanav]">
-                    speaking
-                  </p>
+                <div className="flex justify-evenly sm:flex-col gap-[30px]">
+                  <div className="border-[3px] border-[white] rounded-[16px] md:rounded-[22px] py-3 px-5 flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out opacity-100">
+                    <h1 className="text-[white] text-[24px] md:text-[30px] lg:text-[36px] xl:text-[48px] font-bold">
+                      {currentStudent?.writing}
+                    </h1>
+                    <p className="text-[white] text-[18px] font-bold lg:text-[28px] xl:text-[34px] text-[Yantramanav]">
+                      writing
+                    </p>
+                  </div>
+                  <div className="border-[3px] border-[white] rounded-[24px] md:rounded-[22px] py-3 px-5 flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out opacity-100">
+                    <h1 className="text-[white] text-[24px] md:text-[30px] lg:text-[36px] xl:text-[48px] font-bold">
+                      {currentStudent?.speaking}
+                    </h1>
+                    <p className="text-[white] text-[18px] font-bold lg:text-[28px] xl:text-[34px] text-[Yantramanav]">
+                      speaking
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
+            )
           )}
         </div>
         <Link

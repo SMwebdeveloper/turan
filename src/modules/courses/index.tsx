@@ -57,10 +57,10 @@ const Index = () => {
           </div>
         ))}
       </div>
-      {courses.length !==0 && (
+      {courses.length !== 0 && (
         <Link
           to={"/request"}
-          className="mx-auto text-center text-white bg-yellowColor block w-[300px] py-3 rounded-xl cursor-pointer font-semibold text-2xl hover:opacity-50 duration-200"
+          className="bg-[#F8B300] py-[7px] block mx-auto rounded-[10px] text-[Yantramanav] text-[#1E063A] lg:text-[18px] xl:text-[24px] lg:w-[478px] lg:py-[8px] hover:scale-110 transition duration-500  ease-in-out text-center"
         >
           Kursga yozilish
         </Link>
