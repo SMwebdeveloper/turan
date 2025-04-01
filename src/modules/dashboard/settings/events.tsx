@@ -35,7 +35,7 @@ const Events = () => {
     if (recordId) {
       
       try {
-        const updateRecordData = await updateRecord(record);
+        await updateRecord(record);
         setVisibleEditModal(false)
         setRecordId(0)
       } catch (error) {
@@ -48,7 +48,7 @@ const Events = () => {
         about: "asd",
       };
       try {
-        const response = await createRecord(newRecord);
+        await createRecord(newRecord);
         setVisibleModal(false);
         setRecord({
           id: 0,

@@ -6,7 +6,6 @@ import Hamburger from "../../../assets/menu-burger-darker.png";
 import Yellowburger from "../../../assets/menu-burger-yellow.png";
 import Notification from "../../../assets/notification-dark.png";
 import NotificationYellow from "../../../assets/notification-yellow.png";
-import Arrow from "../../../assets/arrow.png";
 import LogOut from "../../../assets/logout.png"
 import { Link, useNavigate } from "react-router-dom";
 import { useConfirmationRequestMutation, useGetRequestsQuery } from "../../../service/admin";
@@ -14,8 +13,6 @@ import { useConfirmationRequestMutation, useGetRequestsQuery } from "../../../se
 const AdminHeader = () => {
   const [openFirstSidebar, setOpenFirstSidebar] = useState(false);
   const [openSecondSidebar, setSecondSidebar] = useState(false);
-  const [visibleSettingsLinks, setVisibleSettingsLinks] = useState(false);
-  const [visibleExamensLinks, setVisibleExamensLinks] = useState(false);
 
   const navigate = useNavigate()
   const settingsLinks = {
@@ -47,19 +44,7 @@ const AdminHeader = () => {
       },
     ],
   };
-  const examensLinks = {
-    title: "Imtihonlar",
-    links: [
-      {
-        linkTitle: "Savollar qo'shish",
-        path: "/admin/examens/add-questions",
-      },
-      {
-        linkTitle: "Natijalar tekshirish",
-        path: "/admin/examens/check-results",
-      },
-    ],
-  };
+  
 
 const {data: request, isLoading} = useGetRequestsQuery(null)
 const [confirmation, {isLoading: checkLoading}] = useConfirmationRequestMutation()
